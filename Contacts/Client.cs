@@ -12,7 +12,8 @@ namespace Contacts
         public string Name { get; set; }
         public string LastName { set; get; }
         public string Phone { get; set; }
-        public string VkLink { get; set; }
+        public string Link { get; set; }
         public string Email { get; set; }
+        public DateTime Birthday { get; set; }
     }
 }

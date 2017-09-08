@@ -25,10 +25,21 @@ namespace Contacts
 
         private void submitBtn_Click(object sender, EventArgs e)
         {
-            SQLiteConnection.CreateFile("Mydb.db");
+            //SQLiteConnection.CreateFile("Mydb.db");
             var db = new ApplicationContext();
-            
-            
+            var client = new Client
+            {
+               // Id = 0
+                Birthday = birthdayEdit.DateTime,
+                Name = nameEdit.Text,
+                LastName = lastNameEdit.Text,
+                Email = emailEdit.Text,
+                Phone = phoneEdit.Text,
+                Link = linkEdit.Text
+            };
+            db.Clients.Add(client);
+            db.SaveChanges();
+
         }
     }
 }

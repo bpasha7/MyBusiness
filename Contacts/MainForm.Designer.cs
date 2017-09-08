@@ -30,9 +30,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
             this.tileBar = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroupTables = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
@@ -43,7 +43,7 @@
             this.tileBarDropDownContainer1 = new DevExpress.XtraBars.Navigation.TileBarDropDownContainer();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.newUserControl = new DevExpress.XtraLayout.LayoutControl();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.birthdayEdit = new DevExpress.XtraEditors.DateEdit();
             this.nameEdit = new DevExpress.XtraEditors.TextEdit();
             this.lastNameEdit = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -57,9 +57,9 @@
             this.eployeesTileBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.customersTileBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarItem1 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.phoneEdit = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.linkEdit = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -68,7 +68,7 @@
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.emailEdit = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).BeginInit();
             this.navigationFrame.SuspendLayout();
@@ -79,8 +79,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newUserControl)).BeginInit();
             this.newUserControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.birthdayEdit.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.birthdayEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lastNameEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -91,16 +91,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phoneEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linkEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emailEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             this.SuspendLayout();
             // 
@@ -210,14 +210,14 @@
             // 
             // newUserControl
             // 
-            this.newUserControl.Controls.Add(this.dateEdit1);
+            this.newUserControl.Controls.Add(this.birthdayEdit);
             this.newUserControl.Controls.Add(this.nameEdit);
             this.newUserControl.Controls.Add(this.lastNameEdit);
             this.newUserControl.Controls.Add(this.pictureEdit1);
-            this.newUserControl.Controls.Add(this.textEdit1);
-            this.newUserControl.Controls.Add(this.textEdit2);
+            this.newUserControl.Controls.Add(this.phoneEdit);
+            this.newUserControl.Controls.Add(this.linkEdit);
             this.newUserControl.Controls.Add(this.submitBtn);
-            this.newUserControl.Controls.Add(this.textEdit3);
+            this.newUserControl.Controls.Add(this.emailEdit);
             this.newUserControl.Location = new System.Drawing.Point(12, 8);
             this.newUserControl.Name = "newUserControl";
             this.newUserControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1970, 144, 450, 400);
@@ -226,20 +226,20 @@
             this.newUserControl.TabIndex = 1;
             this.newUserControl.Text = "layoutControl1";
             // 
-            // dateEdit1
+            // birthdayEdit
             // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(380, 117);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateEdit1.Properties.Appearance.Options.UseFont = true;
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.birthdayEdit.EditValue = null;
+            this.birthdayEdit.Location = new System.Drawing.Point(380, 117);
+            this.birthdayEdit.Name = "birthdayEdit";
+            this.birthdayEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.birthdayEdit.Properties.Appearance.Options.UseFont = true;
+            this.birthdayEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.birthdayEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(86, 26);
-            this.dateEdit1.StyleController = this.newUserControl;
-            this.dateEdit1.TabIndex = 7;
+            this.birthdayEdit.Size = new System.Drawing.Size(86, 26);
+            this.birthdayEdit.StyleController = this.newUserControl;
+            this.birthdayEdit.TabIndex = 7;
             // 
             // nameEdit
             // 
@@ -306,7 +306,7 @@
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.dateEdit1;
+            this.layoutControlItem4.Control = this.birthdayEdit;
             this.layoutControlItem4.Location = new System.Drawing.Point(285, 120);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(173, 30);
@@ -357,9 +357,9 @@
             this.eployeesTileBarItem.AppearanceItem.Normal.Options.UseFont = true;
             this.eployeesTileBarItem.DropDownControl = this.tileBarDropDownContainer1;
             this.eployeesTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement4.Image = global::Contacts.Properties.Resources.woman;
-            tileItemElement4.Text = "Клиенты";
-            this.eployeesTileBarItem.Elements.Add(tileItemElement4);
+            tileItemElement1.Image = global::Contacts.Properties.Resources.woman;
+            tileItemElement1.Text = "Клиенты";
+            this.eployeesTileBarItem.Elements.Add(tileItemElement1);
             this.eployeesTileBarItem.Name = "eployeesTileBarItem";
             // 
             // customersTileBarItem
@@ -369,9 +369,9 @@
             this.customersTileBarItem.AppearanceItem.Normal.Options.UseBackColor = true;
             this.customersTileBarItem.AppearanceItem.Normal.Options.UseFont = true;
             this.customersTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement1.Image = global::Contacts.Properties.Resources.get_money;
-            tileItemElement1.Text = "Услуги";
-            this.customersTileBarItem.Elements.Add(tileItemElement1);
+            tileItemElement2.Image = global::Contacts.Properties.Resources.get_money;
+            tileItemElement2.Text = "Услуги";
+            this.customersTileBarItem.Elements.Add(tileItemElement2);
             this.customersTileBarItem.Id = 2;
             this.customersTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.customersTileBarItem.Name = "customersTileBarItem";
@@ -383,47 +383,47 @@
             this.tileBarItem1.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem1.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement5.Image = global::Contacts.Properties.Resources.database;
-            tileItemElement5.Text = "База данных";
-            this.tileBarItem1.Elements.Add(tileItemElement5);
+            tileItemElement3.Image = global::Contacts.Properties.Resources.database;
+            tileItemElement3.Text = "База данных";
+            this.tileBarItem1.Elements.Add(tileItemElement3);
             this.tileBarItem1.Id = 3;
             this.tileBarItem1.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem1.Name = "tileBarItem1";
             // 
-            // textEdit1
+            // phoneEdit
             // 
-            this.textEdit1.Location = new System.Drawing.Point(95, 77);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Properties.Mask.EditMask = "+7 (999) 000-0000";
-            this.textEdit1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
-            this.textEdit1.Size = new System.Drawing.Size(198, 26);
-            this.textEdit1.StyleController = this.newUserControl;
-            this.textEdit1.TabIndex = 9;
+            this.phoneEdit.Location = new System.Drawing.Point(95, 77);
+            this.phoneEdit.Name = "phoneEdit";
+            this.phoneEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.phoneEdit.Properties.Appearance.Options.UseFont = true;
+            this.phoneEdit.Properties.Mask.EditMask = "+7 (999) 000-0000";
+            this.phoneEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.phoneEdit.Size = new System.Drawing.Size(198, 26);
+            this.phoneEdit.StyleController = this.newUserControl;
+            this.phoneEdit.TabIndex = 9;
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.textEdit1;
+            this.layoutControlItem3.Control = this.phoneEdit;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 80);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(285, 30);
             this.layoutControlItem3.Text = "Сотовый";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(80, 13);
             // 
-            // textEdit2
+            // linkEdit
             // 
-            this.textEdit2.Location = new System.Drawing.Point(95, 157);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.Size = new System.Drawing.Size(371, 26);
-            this.textEdit2.StyleController = this.newUserControl;
-            this.textEdit2.TabIndex = 10;
+            this.linkEdit.Location = new System.Drawing.Point(95, 157);
+            this.linkEdit.Name = "linkEdit";
+            this.linkEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.linkEdit.Properties.Appearance.Options.UseFont = true;
+            this.linkEdit.Size = new System.Drawing.Size(371, 26);
+            this.linkEdit.StyleController = this.newUserControl;
+            this.linkEdit.TabIndex = 10;
             // 
             // layoutControlItem6
             // 
-            this.layoutControlItem6.Control = this.textEdit2;
+            this.layoutControlItem6.Control = this.linkEdit;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 160);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(458, 30);
@@ -491,19 +491,19 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(458, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // textEdit3
+            // emailEdit
             // 
-            this.textEdit3.Location = new System.Drawing.Point(95, 117);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textEdit3.Properties.Appearance.Options.UseFont = true;
-            this.textEdit3.Size = new System.Drawing.Size(198, 26);
-            this.textEdit3.StyleController = this.newUserControl;
-            this.textEdit3.TabIndex = 12;
+            this.emailEdit.Location = new System.Drawing.Point(95, 117);
+            this.emailEdit.Name = "emailEdit";
+            this.emailEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.emailEdit.Properties.Appearance.Options.UseFont = true;
+            this.emailEdit.Size = new System.Drawing.Size(198, 26);
+            this.emailEdit.StyleController = this.newUserControl;
+            this.emailEdit.TabIndex = 12;
             // 
             // layoutControlItem8
             // 
-            this.layoutControlItem8.Control = this.textEdit3;
+            this.layoutControlItem8.Control = this.emailEdit;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Size = new System.Drawing.Size(285, 30);
@@ -531,8 +531,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newUserControl)).EndInit();
             this.newUserControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.birthdayEdit.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.birthdayEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lastNameEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -543,16 +543,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phoneEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linkEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emailEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             this.ResumeLayout(false);
 
@@ -573,7 +573,7 @@
         private DevExpress.XtraBars.Navigation.TileBarDropDownContainer tileBarDropDownContainer1;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private DevExpress.XtraLayout.LayoutControl newUserControl;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit birthdayEdit;
         private DevExpress.XtraEditors.TextEdit nameEdit;
         private DevExpress.XtraEditors.TextEdit lastNameEdit;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
@@ -584,8 +584,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit phoneEdit;
+        private DevExpress.XtraEditors.TextEdit linkEdit;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
@@ -595,7 +595,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.TextEdit emailEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
     }
 }
