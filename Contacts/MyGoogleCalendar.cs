@@ -101,6 +101,7 @@ namespace Contacts
             {
                 EventsResource.ListRequest request = _calendar.Events.List("primary");
                 request.TimeMin = date;
+                request.TimeMax = new DateTime(2017, 10, 20);
                 request.ShowDeleted = false;
                 request.SingleEvents = true;
                 request.MaxResults = 10;
@@ -114,11 +115,6 @@ namespace Contacts
                     {
                         try
                         {
-                            //string when = eventItem.Start.DateTime.ToString();
-                            //if (String.IsNullOrEmpty(when))
-                            //{
-                            //    when = eventItem.Start.Date;
-                            //}
                             //0 - Услуга, 1 - Стоимость, 2 - Предоплата, 3 Телефон, 4 Коментарий
                             var comments = eventItem.Description?.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -129,11 +125,11 @@ namespace Contacts
                                 TimeStart = eventItem.Start.DateTime.Value,
                                 TimeFinish = eventItem.End.DateTime.Value,
                                 Date = eventItem.Start.DateTime.Value,
-                                Phone = comments[3],
-                                Payment = comments[1],
-                                Prepayment = comments[2],
-                                Items = comments[0],
-                                Commentary = comments[4]
+                                Phone = comments.Length >= 4 ?  comments[3] : "",
+                                Payment = comments.Length >= 2 ? Convert.ToDecimal(comments[1]) : 0,
+                                Prepayment = comments.Length >= 3 ? Convert.ToDecimal(comments[2]) : 0,
+                                Items = comments.Length >= 1 ? comments[0] : "",
+                                Commentary = comments.Length >= 5 ? comments[4] : ""
                             });
                         }
                         catch (Exception ex)

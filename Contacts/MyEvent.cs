@@ -14,8 +14,8 @@ namespace Contacts
         public string Phone { get; set; }
         public string Location { get; set; }
         public string Commentary { get; set; }
-        public string Payment { get; set; }
-        public string Prepayment { get; set; }
+        public decimal Payment { get; set; }
+        public decimal Prepayment { get; set; }
         public string Name { get; set; }
         public string Items { get; set; }
 

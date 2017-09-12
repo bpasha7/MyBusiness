@@ -277,7 +277,7 @@ namespace Contacts
 
         private async Task ClearFormCaption()
         {
-            await Task.Run(() => Thread.Sleep(1200));
+            await Task.Run(() => Thread.Sleep(2000));
             this.Text = "";
         }
 
@@ -291,6 +291,19 @@ namespace Contacts
             EventsGrid.DataSource = events;
             this.Text = _calendar.GetStatus();
             await ClearFormCaption();
+        }
+
+        private void EventsGrid_Resize(object sender, EventArgs e)
+        {
+            //EventsGrid.Location = new Point(0, 36);
+            //EventsGrid.Dock = DockStyle.Bottom;
+        }
+
+        private void datesPanel_Resize(object sender, EventArgs e)
+        {
+            //var padding = datesPanel.Width / 4;
+            //layoutControlGroup3.Padding.Left = padding;
+
         }
     }
 }

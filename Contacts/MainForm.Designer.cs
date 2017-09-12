@@ -33,11 +33,11 @@ namespace Contacts
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.TileItemElement tileItemElement18 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement14 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement19 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement20 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement21 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tileBar = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroupTables = new DevExpress.XtraBars.Navigation.TileBarGroup();
@@ -58,6 +58,7 @@ namespace Contacts
             this.idCol = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.lastNameCol = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.nameCol = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bDayCol = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.telCol = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.linkCol = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -88,26 +89,38 @@ namespace Contacts
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.customersNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.dbNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.EventsGrid = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.datesPanel = new DevExpress.XtraEditors.PanelControl();
+            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.gridSplitContainer1 = new DevExpress.XtraGrid.GridSplitContainer();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.cardView1 = new DevExpress.XtraGrid.Views.Card.CardView();
-            this.dbLoader = new System.ComponentModel.BackgroundWorker();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.EventsGrid = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.nameCol1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.itemsCol1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.paymentCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.prepaymentCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.phoneCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.commentCol = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TimeCol = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dateCol = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.gridSplitContainer1 = new DevExpress.XtraGrid.GridSplitContainer();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.cardView1 = new DevExpress.XtraGrid.Views.Card.CardView();
+            this.dbLoader = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer1)).BeginInit();
             this.tileBarDropDownContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
@@ -143,9 +156,25 @@ namespace Contacts
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             this.customersNavigationPage.SuspendLayout();
             this.dbNavigationPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datesPanel)).BeginInit();
+            this.datesPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
+            this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EventsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).BeginInit();
             this.gridSplitContainer1.SuspendLayout();
@@ -181,7 +210,7 @@ namespace Contacts
             this.tileBar.SelectionBorderWidth = 2;
             this.tileBar.SelectionColorMode = DevExpress.XtraBars.Navigation.SelectionColorMode.UseItemBackColor;
             this.tileBar.ShowGroupText = false;
-            this.tileBar.Size = new System.Drawing.Size(872, 80);
+            this.tileBar.Size = new System.Drawing.Size(863, 80);
             this.tileBar.TabIndex = 1;
             this.tileBar.Text = "tileBar";
             this.tileBar.WideTileWidth = 150;
@@ -210,9 +239,9 @@ namespace Contacts
             this.clientBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Black;
             this.clientBarItem.DropDownOptions.CloseOnOuterClick = DevExpress.Utils.DefaultBoolean.True;
             this.clientBarItem.DropDownOptions.Height = 50;
-            tileItemElement18.Image = global::Contacts.Properties.Resources.woman;
-            tileItemElement18.Text = "Клиенты";
-            this.clientBarItem.Elements.Add(tileItemElement18);
+            tileItemElement1.Image = global::Contacts.Properties.Resources.woman;
+            tileItemElement1.Text = "Клиенты";
+            this.clientBarItem.Elements.Add(tileItemElement1);
             this.clientBarItem.Name = "clientBarItem";
             this.clientBarItem.ItemDoubleClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.eployeesTileBarItem_ItemDoubleClick);
             this.clientBarItem.ItemPress += new DevExpress.XtraEditors.TileItemClickEventHandler(this.eployeesTileBarItem_ItemPress);
@@ -258,9 +287,9 @@ namespace Contacts
             this.pricesBarItem.AppearanceItem.Normal.Options.UseBackColor = true;
             this.pricesBarItem.AppearanceItem.Normal.Options.UseFont = true;
             this.pricesBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement14.Image = global::Contacts.Properties.Resources.get_money;
-            tileItemElement14.Text = "Поступления";
-            this.pricesBarItem.Elements.Add(tileItemElement14);
+            tileItemElement2.Image = global::Contacts.Properties.Resources.get_money;
+            tileItemElement2.Text = "Поступления";
+            this.pricesBarItem.Elements.Add(tileItemElement2);
             this.pricesBarItem.Id = 2;
             this.pricesBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.pricesBarItem.Name = "pricesBarItem";
@@ -271,9 +300,9 @@ namespace Contacts
             this.tileBarItem3.AppearanceItem.Normal.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.tileBarItem3.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem3.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement19.Image = global::Contacts.Properties.Resources.calendar_with_a_clock_time_tools;
-            tileItemElement19.Text = "Записи";
-            this.tileBarItem3.Elements.Add(tileItemElement19);
+            tileItemElement3.Image = global::Contacts.Properties.Resources.calendar_with_a_clock_time_tools;
+            tileItemElement3.Text = "Записи";
+            this.tileBarItem3.Elements.Add(tileItemElement3);
             this.tileBarItem3.Id = 6;
             this.tileBarItem3.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem3.Name = "tileBarItem3";
@@ -286,9 +315,9 @@ namespace Contacts
             this.tileBarItem1.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem1.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement20.Image = global::Contacts.Properties.Resources.makeup_brushes1;
-            tileItemElement20.Text = "Материалы";
-            this.tileBarItem1.Elements.Add(tileItemElement20);
+            tileItemElement4.Image = global::Contacts.Properties.Resources.makeup_brushes1;
+            tileItemElement4.Text = "Материалы";
+            this.tileBarItem1.Elements.Add(tileItemElement4);
             this.tileBarItem1.Id = 3;
             this.tileBarItem1.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem1.Name = "tileBarItem1";
@@ -296,9 +325,9 @@ namespace Contacts
             // tileBarItem2
             // 
             this.tileBarItem2.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement21.Image = global::Contacts.Properties.Resources.newspaper;
-            tileItemElement21.Text = "Отчеты";
-            this.tileBarItem2.Elements.Add(tileItemElement21);
+            tileItemElement5.Image = global::Contacts.Properties.Resources.newspaper;
+            tileItemElement5.Text = "Отчеты";
+            this.tileBarItem2.Elements.Add(tileItemElement5);
             this.tileBarItem2.Id = 4;
             this.tileBarItem2.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem2.Name = "tileBarItem2";
@@ -319,7 +348,7 @@ namespace Contacts
             this.dbNavigationPage,
             this.navigationPage1});
             this.navigationFrame.SelectedPage = this.employeesNavigationPage;
-            this.navigationFrame.Size = new System.Drawing.Size(872, 436);
+            this.navigationFrame.Size = new System.Drawing.Size(863, 447);
             this.navigationFrame.TabIndex = 0;
             this.navigationFrame.Text = "navigationFrame";
             this.navigationFrame.Click += new System.EventHandler(this.navigationFrame_Click);
@@ -330,12 +359,12 @@ namespace Contacts
             this.employeesNavigationPage.Controls.Add(this.clientsGridControl);
             this.employeesNavigationPage.Controls.Add(this.newUserControl);
             this.employeesNavigationPage.Name = "employeesNavigationPage";
-            this.employeesNavigationPage.Size = new System.Drawing.Size(872, 436);
+            this.employeesNavigationPage.Size = new System.Drawing.Size(863, 447);
             // 
             // newOrderBtn
             // 
             this.newOrderBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.newOrderBtn.Location = new System.Drawing.Point(794, 409);
+            this.newOrderBtn.Location = new System.Drawing.Point(785, 420);
             this.newOrderBtn.Name = "newOrderBtn";
             this.newOrderBtn.Size = new System.Drawing.Size(75, 23);
             this.newOrderBtn.TabIndex = 4;
@@ -349,7 +378,7 @@ namespace Contacts
             this.clientsGridControl.Location = new System.Drawing.Point(0, 0);
             this.clientsGridControl.MainView = this.bandedGridView1;
             this.clientsGridControl.Name = "clientsGridControl";
-            this.clientsGridControl.Size = new System.Drawing.Size(872, 436);
+            this.clientsGridControl.Size = new System.Drawing.Size(863, 447);
             this.clientsGridControl.TabIndex = 3;
             this.clientsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.bandedGridView1});
@@ -364,6 +393,7 @@ namespace Contacts
             this.bandedGridView1.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
             this.lastNameCol,
             this.nameCol,
+            this.bDayCol,
             this.telCol,
             this.emailCol,
             this.linkCol,
@@ -383,10 +413,11 @@ namespace Contacts
             this.gridBand1.Columns.Add(this.idCol);
             this.gridBand1.Columns.Add(this.lastNameCol);
             this.gridBand1.Columns.Add(this.nameCol);
+            this.gridBand1.Columns.Add(this.bDayCol);
             this.gridBand1.Image = global::Contacts.Properties.Resources.woman__1_;
             this.gridBand1.Name = "gridBand1";
             this.gridBand1.VisibleIndex = 0;
-            this.gridBand1.Width = 399;
+            this.gridBand1.Width = 411;
             // 
             // idCol
             // 
@@ -409,7 +440,7 @@ namespace Contacts
             this.lastNameCol.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "LastName", "Всего: {0}")});
             this.lastNameCol.Visible = true;
-            this.lastNameCol.Width = 193;
+            this.lastNameCol.Width = 172;
             // 
             // nameCol
             // 
@@ -423,7 +454,14 @@ namespace Contacts
             this.nameCol.Name = "nameCol";
             this.nameCol.OptionsColumn.ReadOnly = true;
             this.nameCol.Visible = true;
-            this.nameCol.Width = 206;
+            this.nameCol.Width = 164;
+            // 
+            // bDayCol
+            // 
+            this.bDayCol.Caption = "День рождения";
+            this.bDayCol.FieldName = "Birthday";
+            this.bDayCol.Name = "bDayCol";
+            this.bDayCol.Visible = true;
             // 
             // gridBand2
             // 
@@ -738,38 +776,62 @@ namespace Contacts
             // 
             this.customersNavigationPage.Controls.Add(this.tileBarDropDownContainer1);
             this.customersNavigationPage.Name = "customersNavigationPage";
-            this.customersNavigationPage.Size = new System.Drawing.Size(872, 436);
+            this.customersNavigationPage.Size = new System.Drawing.Size(863, 447);
             // 
             // dbNavigationPage
             // 
-            this.dbNavigationPage.Controls.Add(this.EventsGrid);
+            this.dbNavigationPage.Controls.Add(this.layoutControl1);
             this.dbNavigationPage.Name = "dbNavigationPage";
-            this.dbNavigationPage.Size = new System.Drawing.Size(872, 436);
+            this.dbNavigationPage.Size = new System.Drawing.Size(863, 447);
             this.dbNavigationPage.Paint += new System.Windows.Forms.PaintEventHandler(this.dbNavigationPage_Paint);
             // 
-            // EventsGrid
+            // layoutControl1
             // 
-            this.EventsGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EventsGrid.Location = new System.Drawing.Point(0, 0);
-            this.EventsGrid.MainView = this.gridView1;
-            this.EventsGrid.MenuManager = this.barManager1;
-            this.EventsGrid.Name = "EventsGrid";
-            this.EventsGrid.Size = new System.Drawing.Size(872, 436);
-            this.EventsGrid.TabIndex = 0;
-            this.EventsGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.layoutControl1.Controls.Add(this.datesPanel);
+            this.layoutControl1.Controls.Add(this.EventsGrid);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1664, 259, 450, 400);
+            this.layoutControl1.Root = this.layoutControlGroup2;
+            this.layoutControl1.Size = new System.Drawing.Size(863, 447);
+            this.layoutControl1.TabIndex = 1;
+            this.layoutControl1.Text = "layoutControl1";
             // 
-            // gridView1
+            // datesPanel
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.nameCol1,
-            this.itemsCol1,
-            this.paymentCol,
-            this.prepaymentCol,
-            this.phoneCol,
-            this.commentCol});
-            this.gridView1.GridControl = this.EventsGrid;
-            this.gridView1.Name = "gridView1";
+            this.datesPanel.Controls.Add(this.layoutControl2);
+            this.datesPanel.Location = new System.Drawing.Point(12, 12);
+            this.datesPanel.Name = "datesPanel";
+            this.datesPanel.Size = new System.Drawing.Size(839, 55);
+            this.datesPanel.TabIndex = 4;
+            this.datesPanel.Resize += new System.EventHandler(this.datesPanel_Resize);
+            // 
+            // layoutControl2
+            // 
+            this.layoutControl2.Controls.Add(this.dateEdit1);
+            this.layoutControl2.Controls.Add(this.dateEdit2);
+            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl2.Location = new System.Drawing.Point(2, 2);
+            this.layoutControl2.Name = "layoutControl2";
+            this.layoutControl2.Root = this.layoutControlGroup3;
+            this.layoutControl2.Size = new System.Drawing.Size(835, 51);
+            this.layoutControl2.TabIndex = 0;
+            this.layoutControl2.Text = "layoutControl2";
+            // 
+            // dateEdit1
+            // 
+            this.dateEdit1.EditValue = null;
+            this.dateEdit1.Location = new System.Drawing.Point(114, 12);
+            this.dateEdit1.MenuManager = this.barManager1;
+            this.dateEdit1.Name = "dateEdit1";
+            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Size = new System.Drawing.Size(317, 20);
+            this.dateEdit1.StyleController = this.layoutControl2;
+            this.dateEdit1.TabIndex = 4;
             // 
             // barManager1
             // 
@@ -786,15 +848,15 @@ namespace Contacts
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(872, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(863, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 516);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 527);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(872, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(863, 0);
             // 
             // barDockControlLeft
             // 
@@ -802,20 +864,235 @@ namespace Contacts
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 516);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 527);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(872, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(863, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 516);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 527);
+            // 
+            // dateEdit2
+            // 
+            this.dateEdit2.EditValue = null;
+            this.dateEdit2.Location = new System.Drawing.Point(537, 12);
+            this.dateEdit2.MenuManager = this.barManager1;
+            this.dateEdit2.Name = "dateEdit2";
+            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Size = new System.Drawing.Size(286, 20);
+            this.dateEdit2.StyleController = this.layoutControl2;
+            this.dateEdit2.TabIndex = 5;
+            // 
+            // layoutControlGroup3
+            // 
+            this.layoutControlGroup3.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup3.GroupBordersVisible = false;
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem11,
+            this.layoutControlItem12});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Size = new System.Drawing.Size(835, 51);
+            this.layoutControlGroup3.TextVisible = false;
+            // 
+            // layoutControlItem11
+            // 
+            this.layoutControlItem11.Control = this.dateEdit1;
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem11.Name = "layoutControlItem11";
+            this.layoutControlItem11.Size = new System.Drawing.Size(423, 31);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(99, 13);
+            // 
+            // layoutControlItem12
+            // 
+            this.layoutControlItem12.Control = this.dateEdit2;
+            this.layoutControlItem12.Location = new System.Drawing.Point(423, 0);
+            this.layoutControlItem12.Name = "layoutControlItem12";
+            this.layoutControlItem12.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.layoutControlItem12.Size = new System.Drawing.Size(392, 31);
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(99, 13);
+            // 
+            // EventsGrid
+            // 
+            this.EventsGrid.Location = new System.Drawing.Point(12, 71);
+            this.EventsGrid.MainView = this.gridView1;
+            this.EventsGrid.MenuManager = this.barManager1;
+            this.EventsGrid.Name = "EventsGrid";
+            this.EventsGrid.Size = new System.Drawing.Size(839, 364);
+            this.EventsGrid.TabIndex = 0;
+            this.EventsGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            this.EventsGrid.Resize += new System.EventHandler(this.EventsGrid_Resize);
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.nameCol1,
+            this.itemsCol1,
+            this.paymentCol,
+            this.prepaymentCol,
+            this.phoneCol,
+            this.commentCol,
+            this.TimeCol,
+            this.dateCol});
+            this.gridView1.GridControl = this.EventsGrid;
+            this.gridView1.GroupPanelText = "Записи на сегодня";
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.CheckBoxSelectorColumnWidth = 20;
+            this.gridView1.OptionsSelection.MultiSelect = true;
+            this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            // 
+            // nameCol1
+            // 
+            this.nameCol1.AppearanceHeader.Options.UseTextOptions = true;
+            this.nameCol1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.nameCol1.Caption = "Клиент";
+            this.nameCol1.FieldName = "Name";
+            this.nameCol1.Name = "nameCol1";
+            this.nameCol1.Visible = true;
+            this.nameCol1.VisibleIndex = 3;
+            this.nameCol1.Width = 117;
+            // 
+            // itemsCol1
+            // 
+            this.itemsCol1.AppearanceCell.Options.UseTextOptions = true;
+            this.itemsCol1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.itemsCol1.AppearanceHeader.Options.UseTextOptions = true;
+            this.itemsCol1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.itemsCol1.Caption = "Услуга";
+            this.itemsCol1.FieldName = "Items";
+            this.itemsCol1.Name = "itemsCol1";
+            this.itemsCol1.Visible = true;
+            this.itemsCol1.VisibleIndex = 4;
+            this.itemsCol1.Width = 117;
+            // 
+            // paymentCol
+            // 
+            this.paymentCol.AppearanceCell.Options.UseTextOptions = true;
+            this.paymentCol.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.paymentCol.AppearanceHeader.Options.UseTextOptions = true;
+            this.paymentCol.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.paymentCol.Caption = "Стоимость";
+            this.paymentCol.DisplayFormat.FormatString = "c0";
+            this.paymentCol.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.paymentCol.FieldName = "Payment";
+            this.paymentCol.MaxWidth = 80;
+            this.paymentCol.Name = "paymentCol";
+            this.paymentCol.Visible = true;
+            this.paymentCol.VisibleIndex = 5;
+            this.paymentCol.Width = 80;
+            // 
+            // prepaymentCol
+            // 
+            this.prepaymentCol.AppearanceCell.Options.UseTextOptions = true;
+            this.prepaymentCol.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.prepaymentCol.AppearanceHeader.Options.UseTextOptions = true;
+            this.prepaymentCol.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.prepaymentCol.Caption = "Предоплата";
+            this.prepaymentCol.DisplayFormat.FormatString = "c0";
+            this.prepaymentCol.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.prepaymentCol.FieldName = "Prepayment";
+            this.prepaymentCol.MaxWidth = 80;
+            this.prepaymentCol.Name = "prepaymentCol";
+            this.prepaymentCol.Visible = true;
+            this.prepaymentCol.VisibleIndex = 6;
+            this.prepaymentCol.Width = 80;
+            // 
+            // phoneCol
+            // 
+            this.phoneCol.AppearanceCell.Options.UseTextOptions = true;
+            this.phoneCol.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.phoneCol.AppearanceHeader.Options.UseTextOptions = true;
+            this.phoneCol.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.phoneCol.Caption = "Телефон";
+            this.phoneCol.FieldName = "Phone";
+            this.phoneCol.Name = "phoneCol";
+            this.phoneCol.Visible = true;
+            this.phoneCol.VisibleIndex = 7;
+            this.phoneCol.Width = 117;
+            // 
+            // commentCol
+            // 
+            this.commentCol.AppearanceHeader.Options.UseTextOptions = true;
+            this.commentCol.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.commentCol.Caption = "Коментарий";
+            this.commentCol.FieldName = "Commentary";
+            this.commentCol.Name = "commentCol";
+            this.commentCol.Visible = true;
+            this.commentCol.VisibleIndex = 8;
+            this.commentCol.Width = 145;
+            // 
+            // TimeCol
+            // 
+            this.TimeCol.AppearanceCell.Options.UseTextOptions = true;
+            this.TimeCol.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.TimeCol.AppearanceHeader.Options.UseTextOptions = true;
+            this.TimeCol.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.TimeCol.Caption = "Время";
+            this.TimeCol.DisplayFormat.FormatString = "t";
+            this.TimeCol.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.TimeCol.FieldName = "TimeStart";
+            this.TimeCol.MaxWidth = 50;
+            this.TimeCol.Name = "TimeCol";
+            this.TimeCol.Visible = true;
+            this.TimeCol.VisibleIndex = 2;
+            this.TimeCol.Width = 50;
+            // 
+            // dateCol
+            // 
+            this.dateCol.AppearanceCell.Options.UseTextOptions = true;
+            this.dateCol.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.dateCol.AppearanceHeader.Options.UseTextOptions = true;
+            this.dateCol.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.dateCol.Caption = "Дата";
+            this.dateCol.DisplayFormat.FormatString = "M";
+            this.dateCol.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateCol.FieldName = "Date";
+            this.dateCol.MaxWidth = 80;
+            this.dateCol.Name = "dateCol";
+            this.dateCol.Visible = true;
+            this.dateCol.VisibleIndex = 1;
+            this.dateCol.Width = 79;
+            // 
+            // layoutControlGroup2
+            // 
+            this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup2.GroupBordersVisible = false;
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem9,
+            this.layoutControlItem10});
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup2.Name = "Root";
+            this.layoutControlGroup2.Size = new System.Drawing.Size(863, 447);
+            this.layoutControlGroup2.TextVisible = false;
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.EventsGrid;
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 59);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(843, 368);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextVisible = false;
+            // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.datesPanel;
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(843, 59);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.TextVisible = false;
             // 
             // navigationPage1
             // 
             this.navigationPage1.Name = "navigationPage1";
-            this.navigationPage1.Size = new System.Drawing.Size(872, 436);
+            this.navigationPage1.Size = new System.Drawing.Size(863, 447);
             // 
             // gridSplitContainer1
             // 
@@ -841,69 +1118,13 @@ namespace Contacts
             this.dbLoader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.dbLoader_DoWork);
             this.dbLoader.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.dbLoader_RunWorkerCompleted);
             // 
-            // metroButton1
-            // 
-            this.metroButton1.Location = new System.Drawing.Point(0, 0);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.TabIndex = 0;
-            // 
-            // nameCol1
-            // 
-            this.nameCol1.Caption = "Клиент";
-            this.nameCol1.FieldName = "Name";
-            this.nameCol1.Name = "nameCol1";
-            this.nameCol1.Visible = true;
-            this.nameCol1.VisibleIndex = 0;
-            // 
-            // itemsCol1
-            // 
-            this.itemsCol1.Caption = "Услуга";
-            this.itemsCol1.FieldName = "Items";
-            this.itemsCol1.Name = "itemsCol1";
-            this.itemsCol1.Visible = true;
-            this.itemsCol1.VisibleIndex = 1;
-            // 
-            // paymentCol
-            // 
-            this.paymentCol.Caption = "Стоимость";
-            this.paymentCol.DisplayFormat.FormatString = "c2";
-            this.paymentCol.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.paymentCol.FieldName = "Payment";
-            this.paymentCol.Name = "paymentCol";
-            this.paymentCol.Visible = true;
-            this.paymentCol.VisibleIndex = 2;
-            // 
-            // prepaymentCol
-            // 
-            this.prepaymentCol.Caption = "Предоплата";
-            this.prepaymentCol.FieldName = "Prepayment";
-            this.prepaymentCol.Name = "prepaymentCol";
-            this.prepaymentCol.Visible = true;
-            this.prepaymentCol.VisibleIndex = 3;
-            // 
-            // phoneCol
-            // 
-            this.phoneCol.Caption = "Телефон";
-            this.phoneCol.FieldName = "Phone";
-            this.phoneCol.Name = "phoneCol";
-            this.phoneCol.Visible = true;
-            this.phoneCol.VisibleIndex = 4;
-            // 
-            // commentCol
-            // 
-            this.commentCol.Caption = "Коментарий";
-            this.commentCol.FieldName = "Commentary";
-            this.commentCol.Name = "commentCol";
-            this.commentCol.Visible = true;
-            this.commentCol.VisibleIndex = 5;
-            // 
             // MainForm
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 516);
+            this.ClientSize = new System.Drawing.Size(863, 527);
             this.Controls.Add(this.navigationFrame);
             this.Controls.Add(this.tileBar);
             this.Controls.Add(this.barDockControlLeft);
@@ -949,9 +1170,25 @@ namespace Contacts
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             this.customersNavigationPage.ResumeLayout(false);
             this.dbNavigationPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datesPanel)).EndInit();
+            this.datesPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
+            this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EventsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).EndInit();
             this.gridSplitContainer1.ResumeLayout(false);
@@ -1013,18 +1250,19 @@ namespace Contacts
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        private MetroFramework.Controls.MetroButton metroButton1;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private GridBand gridBand1;
         private BandedGridColumn idCol;
-        private GridBand gridBand2;
         private DevExpress.XtraEditors.SimpleButton newOrderBtn;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem3;
+        private BandedGridColumn bDayCol;
+        private GridBand gridBand1;
+        private GridBand gridBand2;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private GridControl EventsGrid;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn nameCol1;
@@ -1033,5 +1271,17 @@ namespace Contacts
         private DevExpress.XtraGrid.Columns.GridColumn prepaymentCol;
         private DevExpress.XtraGrid.Columns.GridColumn phoneCol;
         private DevExpress.XtraGrid.Columns.GridColumn commentCol;
+        private DevExpress.XtraGrid.Columns.GridColumn TimeCol;
+        private DevExpress.XtraGrid.Columns.GridColumn dateCol;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
+        private DevExpress.XtraEditors.PanelControl datesPanel;
+        private DevExpress.XtraLayout.LayoutControl layoutControl2;
+        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit dateEdit2;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
     }
 }
