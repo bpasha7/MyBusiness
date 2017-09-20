@@ -10,8 +10,9 @@ namespace Contacts
     {
         public int Id { get; set; }
         public int ClientId { get; set; }
-        public int PriceId { set; get; }
         public int Price { set; get; }
         public DateTime Date { get; set; }
+        public string CalendarId { get; set; }
+        public bool Left { get; set; }
     }
 }

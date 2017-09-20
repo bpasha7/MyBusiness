@@ -24,22 +24,73 @@ namespace Contacts
         ApplicationContext db = new ApplicationContext();
 
         MyGoogleCalendar _calendar = new MyGoogleCalendar();
-
+        /// <summary>
+        /// Лог
+        /// </summary>
+        private static NLog.Logger _log;
         #region Clients data
         List<Client> _clients;
+        List<Price> _prices;
         bool _haveNewClient = false;
         AutoCompleteStringCollection collection;
         Client _clientEdit;
 
-        private void CheckCientData()
+        private void CheckClientData()
         {
             if ((_clients == null && !dbLoader.IsBusy) || _haveNewClient)
             {
                 this.Text = "Загрузка клиентов...";
                 clientBarItem.Checked = false;
-                dbLoader.RunWorkerAsync();
+                dbLoader.DoWork += (obj, e) => LoadClients();
+                dbLoader.RunWorkerCompleted += dbLoader_RunWorkerCompleted;
+               dbLoader.RunWorkerAsync();
             }
         }
+
+        private void CheckPriceData()
+        {
+            if ((_prices == null && !dbLoader.IsBusy))
+            {
+                this.Text = "Загрузка списка услуг...";
+                clientBarItem.Checked = false;
+                //dbLoader.DoWork  null;
+                var bg_worker = new BackgroundWorker();
+                bg_worker.DoWork += (obj, e) => LoadPrices();
+                bg_worker.RunWorkerCompleted += dbLoader_Prices_RunWorkerCompleted;
+                bg_worker.RunWorkerAsync();
+            }
+        }
+
+        private void LoadPrices()
+        {
+            try
+            {
+                _prices = db.Prices.ToList();
+            }
+            catch(Exception ex)
+            {
+
+            }
+            finally
+            {
+
+            }          
+        }
+
+
+        private void LoadClients()
+        {
+            try
+            {
+                _clients = db.Clients.ToList();
+                _haveNewClient = false;
+            }
+            finally
+            {
+
+            }
+        }
+
         #endregion
 
         object _lock;
@@ -88,6 +139,7 @@ namespace Contacts
         public MainForm()
         {
             InitializeComponent();
+            _log = NLog.LogManager.GetLogger("MainForm");
             newUserControl.Visible = false;
 
         }
@@ -115,7 +167,7 @@ namespace Contacts
                 if (resUpdate)
                 {
                     _haveNewClient = true;
-                    CheckCientData();
+                    CheckClientData();
                     MessageBox.Show($"Клиент {_clientEdit.LastName} {_clientEdit.Name} успешно обновлен!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -142,7 +194,7 @@ namespace Contacts
             if (res)
             {
                 _haveNewClient = true;
-                CheckCientData();
+                CheckClientData();
                 MessageBox.Show($"Клиент {client.LastName} {client.Name} успешно добавлен!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -183,14 +235,14 @@ namespace Contacts
 
         private void employeesNavigationPage_Enter(object sender, EventArgs e)
         {
-            CheckCientData();
+            CheckClientData();
         }
 
         private void eployeesTileBarItem_ItemPress(object sender, TileItemEventArgs e)
         {
             newUserControl.Visible = false;
             clientsGridControl.Visible = true;
-            CheckCientData();
+            CheckClientData();
         }
 
         private void eployeesTileBarItem_ItemDoubleClick(object sender, TileItemEventArgs e)
@@ -210,6 +262,14 @@ namespace Contacts
             {
 
             }
+        }
+
+        private async void dbLoader_Prices_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            EventsBarItem.Checked = true;
+            this.Text = "";
+            dictionaryListBtn.Enabled = true;
+            await ClearFormCaption();
         }
 
         private void dbLoader_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -279,18 +339,13 @@ namespace Contacts
         {
             await Task.Run(() => Thread.Sleep(2000));
             this.Text = "";
+            pricesBarItem.Checked = false;
+            clientBarItem.Checked = false;
         }
 
         private async void tileBarItem3_ItemDoubleClick(object sender, TileItemEventArgs e)
         {
-            if (!_calendar.Auth())
-                MessageBox.Show(_calendar.GetStatus());
-            this.Text = _calendar.GetStatus();
-            this.Text = "Загрузка событий...";
-            var events = await _calendar.GetEventsAsync(DateTime.Now);
-            EventsGrid.DataSource = events;
-            this.Text = _calendar.GetStatus();
-            await ClearFormCaption();
+           
         }
 
         private void EventsGrid_Resize(object sender, EventArgs e)
@@ -304,6 +359,48 @@ namespace Contacts
             //var padding = datesPanel.Width / 4;
             //layoutControlGroup3.Padding.Left = padding;
 
+        }
+
+        private void endDateEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void uploadEventsBtn_Click(object sender, EventArgs e)
+        {
+            if (!_calendar.Auth())
+                MessageBox.Show(_calendar.GetStatus());
+            this.Text = _calendar.GetStatus();
+            this.Text = "Загрузка событий...";
+            var events = await _calendar.GetEventsAsync(startDateEdit.DateTime, endDateEdit.DateTime.AddDays(1), _prices);
+            EventsGrid.DataSource = events;
+            this.Text = _calendar.GetStatus();
+            gridView1.GroupPanelText = $"Записи с {startDateEdit.DateTime.ToShortDateString()} по {endDateEdit.DateTime.ToShortDateString()}";
+            gridView1.SelectAll();
+            await ClearFormCaption();            
+        }
+
+        private void importEventsBtn_Click(object sender, EventArgs e)
+        {
+            var f = new ImportForm();
+            f.Show();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            startDateEdit.DateTime = DateTime.Now;
+            endDateEdit.DateTime = DateTime.Now.AddDays(1);
+        }
+
+        private void dictionaryListBtn_Click(object sender, EventArgs e)
+        {
+            var s = new ServiceForm(_prices);
+            s.Show();
+        }
+
+        private void tileBarItem3_ItemClick(object sender, TileItemEventArgs e)
+        {
+            CheckPriceData();
         }
     }
 }

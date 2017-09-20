@@ -94,14 +94,14 @@ namespace Contacts
         /// </summary>
         /// <param name="date">Дата</param>
         /// <returns></returns>
-        private List<MyEvent> GetEvents(DateTime date)
+        private List<MyEvent> GetEvents(DateTime date, DateTime end, List<Price> prices)
         {
             var myEvents = new List<MyEvent>();
             try
             {
                 EventsResource.ListRequest request = _calendar.Events.List("primary");
                 request.TimeMin = date;
-                request.TimeMax = new DateTime(2017, 10, 20);
+                request.TimeMax = end;
                 request.ShowDeleted = false;
                 request.SingleEvents = true;
                 request.MaxResults = 10;
@@ -118,19 +118,24 @@ namespace Contacts
                             //0 - Услуга, 1 - Стоимость, 2 - Предоплата, 3 Телефон, 4 Коментарий
                             var comments = eventItem.Description?.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
 
-                            myEvents.Add(new MyEvent
+                            var myEvent = new MyEvent
                             {
+                                Id = eventItem.Id,
                                 Name = eventItem.Summary,
                                 Location = eventItem.Location,
                                 TimeStart = eventItem.Start.DateTime.Value,
                                 TimeFinish = eventItem.End.DateTime.Value,
                                 Date = eventItem.Start.DateTime.Value,
-                                Phone = comments.Length >= 4 ?  comments[3] : "",
+                                Phone = comments.Length >= 4 ? comments[3] : "",
                                 Payment = comments.Length >= 2 ? Convert.ToDecimal(comments[1]) : 0,
                                 Prepayment = comments.Length >= 3 ? Convert.ToDecimal(comments[2]) : 0,
                                 Items = comments.Length >= 1 ? comments[0] : "",
                                 Commentary = comments.Length >= 5 ? comments[4] : ""
-                            });
+                            };
+                            var fullNameItem = prices.Where(p => p.Short == myEvent.Items).FirstOrDefault()?.Name;
+                            myEvent.Items = fullNameItem != "" ? fullNameItem : myEvent.Items;
+
+                            myEvents.Add(myEvent);
                         }
                         catch (Exception ex)
                         {
@@ -153,11 +158,9 @@ namespace Contacts
 
         }
 
-        public async Task<List<MyEvent>> GetEventsAsync(DateTime date)
-        {
-            //var t = new Task();
-            
-            return await Task.Run(() =>  GetEvents(date));
+        public async Task<List<MyEvent>> GetEventsAsync(DateTime date, DateTime end, List<Price> prices)
+        {          
+            return await Task.Run(() =>  GetEvents(date, end, prices));
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Contacts
 {
     public class MyEvent
     {
+        public string Id { get; set; }
         public DateTime Date { get; set; }
         public DateTime TimeStart { get; set; }
         public DateTime TimeFinish{ get; set; }

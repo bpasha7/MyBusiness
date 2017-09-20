@@ -33,11 +33,11 @@ namespace Contacts
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement9 = new DevExpress.XtraEditors.TileItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tileBar = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroupTables = new DevExpress.XtraBars.Navigation.TileBarGroup();
@@ -46,7 +46,7 @@ namespace Contacts
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.pricesBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem3 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.EventsBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarItem1 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarItem2 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
@@ -91,17 +91,19 @@ namespace Contacts
             this.dbNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.datesPanel = new DevExpress.XtraEditors.PanelControl();
-            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.importEventsBtn = new DevExpress.XtraEditors.SimpleButton();
+            this.uploadEventsBtn = new DevExpress.XtraEditors.SimpleButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dictionaryListBtn = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.endDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
-            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.startDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.EventsGrid = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.nameCol1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -121,6 +123,10 @@ namespace Contacts
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.cardView1 = new DevExpress.XtraGrid.Views.Card.CardView();
             this.dbLoader = new System.ComponentModel.BackgroundWorker();
+            this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
+            this.emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer1)).BeginInit();
             this.tileBarDropDownContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
@@ -160,16 +166,12 @@ namespace Contacts
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datesPanel)).BeginInit();
             this.datesPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
-            this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EventsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
@@ -180,6 +182,10 @@ namespace Contacts
             this.gridSplitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             this.SuspendLayout();
             // 
             // tileBar
@@ -221,7 +227,7 @@ namespace Contacts
             // 
             this.tileBarGroupTables.Items.Add(this.clientBarItem);
             this.tileBarGroupTables.Items.Add(this.pricesBarItem);
-            this.tileBarGroupTables.Items.Add(this.tileBarItem3);
+            this.tileBarGroupTables.Items.Add(this.EventsBarItem);
             this.tileBarGroupTables.Items.Add(this.tileBarItem1);
             this.tileBarGroupTables.Items.Add(this.tileBarItem2);
             this.tileBarGroupTables.Name = "tileBarGroupTables";
@@ -239,9 +245,9 @@ namespace Contacts
             this.clientBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Black;
             this.clientBarItem.DropDownOptions.CloseOnOuterClick = DevExpress.Utils.DefaultBoolean.True;
             this.clientBarItem.DropDownOptions.Height = 50;
-            tileItemElement1.Image = global::Contacts.Properties.Resources.woman;
-            tileItemElement1.Text = "Клиенты";
-            this.clientBarItem.Elements.Add(tileItemElement1);
+            tileItemElement6.Image = global::Contacts.Properties.Resources.woman;
+            tileItemElement6.Text = "Клиенты";
+            this.clientBarItem.Elements.Add(tileItemElement6);
             this.clientBarItem.Name = "clientBarItem";
             this.clientBarItem.ItemDoubleClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.eployeesTileBarItem_ItemDoubleClick);
             this.clientBarItem.ItemPress += new DevExpress.XtraEditors.TileItemClickEventHandler(this.eployeesTileBarItem_ItemPress);
@@ -287,26 +293,27 @@ namespace Contacts
             this.pricesBarItem.AppearanceItem.Normal.Options.UseBackColor = true;
             this.pricesBarItem.AppearanceItem.Normal.Options.UseFont = true;
             this.pricesBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement2.Image = global::Contacts.Properties.Resources.get_money;
-            tileItemElement2.Text = "Поступления";
-            this.pricesBarItem.Elements.Add(tileItemElement2);
+            tileItemElement1.Image = global::Contacts.Properties.Resources.get_money;
+            tileItemElement1.Text = "Поступления";
+            this.pricesBarItem.Elements.Add(tileItemElement1);
             this.pricesBarItem.Id = 2;
             this.pricesBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.pricesBarItem.Name = "pricesBarItem";
             this.pricesBarItem.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.False;
             // 
-            // tileBarItem3
+            // EventsBarItem
             // 
-            this.tileBarItem3.AppearanceItem.Normal.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.tileBarItem3.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem3.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement3.Image = global::Contacts.Properties.Resources.calendar_with_a_clock_time_tools;
-            tileItemElement3.Text = "Записи";
-            this.tileBarItem3.Elements.Add(tileItemElement3);
-            this.tileBarItem3.Id = 6;
-            this.tileBarItem3.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem3.Name = "tileBarItem3";
-            this.tileBarItem3.ItemDoubleClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem3_ItemDoubleClick);
+            this.EventsBarItem.AppearanceItem.Normal.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.EventsBarItem.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.EventsBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement7.Image = global::Contacts.Properties.Resources.calendar_with_a_clock_time_tools;
+            tileItemElement7.Text = "Записи";
+            this.EventsBarItem.Elements.Add(tileItemElement7);
+            this.EventsBarItem.Id = 6;
+            this.EventsBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.EventsBarItem.Name = "EventsBarItem";
+            this.EventsBarItem.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem3_ItemClick);
+            this.EventsBarItem.ItemDoubleClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem3_ItemDoubleClick);
             // 
             // tileBarItem1
             // 
@@ -315,9 +322,9 @@ namespace Contacts
             this.tileBarItem1.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem1.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement4.Image = global::Contacts.Properties.Resources.makeup_brushes1;
-            tileItemElement4.Text = "Материалы";
-            this.tileBarItem1.Elements.Add(tileItemElement4);
+            tileItemElement8.Image = global::Contacts.Properties.Resources.makeup_brushes1;
+            tileItemElement8.Text = "Материалы";
+            this.tileBarItem1.Elements.Add(tileItemElement8);
             this.tileBarItem1.Id = 3;
             this.tileBarItem1.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem1.Name = "tileBarItem1";
@@ -325,9 +332,9 @@ namespace Contacts
             // tileBarItem2
             // 
             this.tileBarItem2.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement5.Image = global::Contacts.Properties.Resources.newspaper;
-            tileItemElement5.Text = "Отчеты";
-            this.tileBarItem2.Elements.Add(tileItemElement5);
+            tileItemElement9.Image = global::Contacts.Properties.Resources.newspaper;
+            tileItemElement9.Text = "Отчеты";
+            this.tileBarItem2.Elements.Add(tileItemElement9);
             this.tileBarItem2.Id = 4;
             this.tileBarItem2.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem2.Name = "tileBarItem2";
@@ -800,38 +807,88 @@ namespace Contacts
             // 
             // datesPanel
             // 
-            this.datesPanel.Controls.Add(this.layoutControl2);
+            this.datesPanel.Controls.Add(this.importEventsBtn);
+            this.datesPanel.Controls.Add(this.uploadEventsBtn);
+            this.datesPanel.Controls.Add(this.pictureBox1);
+            this.datesPanel.Controls.Add(this.dictionaryListBtn);
+            this.datesPanel.Controls.Add(this.labelControl2);
+            this.datesPanel.Controls.Add(this.labelControl1);
+            this.datesPanel.Controls.Add(this.endDateEdit);
+            this.datesPanel.Controls.Add(this.startDateEdit);
             this.datesPanel.Location = new System.Drawing.Point(12, 12);
             this.datesPanel.Name = "datesPanel";
-            this.datesPanel.Size = new System.Drawing.Size(839, 55);
+            this.datesPanel.Size = new System.Drawing.Size(839, 30);
             this.datesPanel.TabIndex = 4;
             this.datesPanel.Resize += new System.EventHandler(this.datesPanel_Resize);
             // 
-            // layoutControl2
+            // importEventsBtn
             // 
-            this.layoutControl2.Controls.Add(this.dateEdit1);
-            this.layoutControl2.Controls.Add(this.dateEdit2);
-            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(2, 2);
-            this.layoutControl2.Name = "layoutControl2";
-            this.layoutControl2.Root = this.layoutControlGroup3;
-            this.layoutControl2.Size = new System.Drawing.Size(835, 51);
-            this.layoutControl2.TabIndex = 0;
-            this.layoutControl2.Text = "layoutControl2";
+            this.importEventsBtn.ImageOptions.Image = global::Contacts.Properties.Resources.import__1_;
+            this.importEventsBtn.Location = new System.Drawing.Point(289, 1);
+            this.importEventsBtn.Name = "importEventsBtn";
+            this.importEventsBtn.Size = new System.Drawing.Size(32, 28);
+            this.importEventsBtn.TabIndex = 7;
+            this.importEventsBtn.Click += new System.EventHandler(this.importEventsBtn_Click);
             // 
-            // dateEdit1
+            // uploadEventsBtn
             // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(114, 12);
-            this.dateEdit1.MenuManager = this.barManager1;
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.uploadEventsBtn.ImageOptions.Image = global::Contacts.Properties.Resources.refresh_page_option;
+            this.uploadEventsBtn.Location = new System.Drawing.Point(251, 1);
+            this.uploadEventsBtn.Name = "uploadEventsBtn";
+            this.uploadEventsBtn.Size = new System.Drawing.Size(32, 28);
+            this.uploadEventsBtn.TabIndex = 6;
+            this.uploadEventsBtn.Click += new System.EventHandler(this.uploadEventsBtn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Contacts.Properties.Resources.calendar;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // dictionaryListBtn
+            // 
+            this.dictionaryListBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.dictionaryListBtn.Enabled = false;
+            this.dictionaryListBtn.ImageOptions.Image = global::Contacts.Properties.Resources.listing_option__1_;
+            this.dictionaryListBtn.Location = new System.Drawing.Point(802, 1);
+            this.dictionaryListBtn.Name = "dictionaryListBtn";
+            this.dictionaryListBtn.Size = new System.Drawing.Size(34, 28);
+            this.dictionaryListBtn.TabIndex = 4;
+            this.dictionaryListBtn.Click += new System.EventHandler(this.dictionaryListBtn_Click);
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(142, 10);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(17, 13);
+            this.labelControl2.TabIndex = 3;
+            this.labelControl2.Text = "По:";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(36, 10);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(11, 13);
+            this.labelControl1.TabIndex = 2;
+            this.labelControl1.Text = "С:";
+            // 
+            // endDateEdit
+            // 
+            this.endDateEdit.EditValue = null;
+            this.endDateEdit.Location = new System.Drawing.Point(165, 7);
+            this.endDateEdit.MenuManager = this.barManager1;
+            this.endDateEdit.Name = "endDateEdit";
+            this.endDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.endDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(317, 20);
-            this.dateEdit1.StyleController = this.layoutControl2;
-            this.dateEdit1.TabIndex = 4;
+            this.endDateEdit.Size = new System.Drawing.Size(80, 20);
+            this.endDateEdit.TabIndex = 1;
+            this.endDateEdit.EditValueChanged += new System.EventHandler(this.endDateEdit_EditValueChanged);
             // 
             // barManager1
             // 
@@ -874,56 +931,26 @@ namespace Contacts
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 527);
             // 
-            // dateEdit2
+            // startDateEdit
             // 
-            this.dateEdit2.EditValue = null;
-            this.dateEdit2.Location = new System.Drawing.Point(537, 12);
-            this.dateEdit2.MenuManager = this.barManager1;
-            this.dateEdit2.Name = "dateEdit2";
-            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.startDateEdit.EditValue = null;
+            this.startDateEdit.Location = new System.Drawing.Point(53, 7);
+            this.startDateEdit.MenuManager = this.barManager1;
+            this.startDateEdit.Name = "startDateEdit";
+            this.startDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.startDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Size = new System.Drawing.Size(286, 20);
-            this.dateEdit2.StyleController = this.layoutControl2;
-            this.dateEdit2.TabIndex = 5;
-            // 
-            // layoutControlGroup3
-            // 
-            this.layoutControlGroup3.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup3.GroupBordersVisible = false;
-            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem11,
-            this.layoutControlItem12});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(835, 51);
-            this.layoutControlGroup3.TextVisible = false;
-            // 
-            // layoutControlItem11
-            // 
-            this.layoutControlItem11.Control = this.dateEdit1;
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(423, 31);
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(99, 13);
-            // 
-            // layoutControlItem12
-            // 
-            this.layoutControlItem12.Control = this.dateEdit2;
-            this.layoutControlItem12.Location = new System.Drawing.Point(423, 0);
-            this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem12.Size = new System.Drawing.Size(392, 31);
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(99, 13);
+            this.startDateEdit.Size = new System.Drawing.Size(80, 20);
+            this.startDateEdit.TabIndex = 0;
             // 
             // EventsGrid
             // 
-            this.EventsGrid.Location = new System.Drawing.Point(12, 71);
+            this.EventsGrid.Location = new System.Drawing.Point(12, 46);
             this.EventsGrid.MainView = this.gridView1;
             this.EventsGrid.MenuManager = this.barManager1;
             this.EventsGrid.Name = "EventsGrid";
-            this.EventsGrid.Size = new System.Drawing.Size(839, 364);
+            this.EventsGrid.Size = new System.Drawing.Size(839, 389);
             this.EventsGrid.TabIndex = 0;
             this.EventsGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -941,7 +968,7 @@ namespace Contacts
             this.TimeCol,
             this.dateCol});
             this.gridView1.GridControl = this.EventsGrid;
-            this.gridView1.GroupPanelText = "Записи на сегодня";
+            this.gridView1.GroupPanelText = "Записи";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.CheckBoxSelectorColumnWidth = 20;
             this.gridView1.OptionsSelection.MultiSelect = true;
@@ -1074,9 +1101,9 @@ namespace Contacts
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.EventsGrid;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 59);
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(843, 368);
+            this.layoutControlItem9.Size = new System.Drawing.Size(843, 393);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
@@ -1084,8 +1111,11 @@ namespace Contacts
             // 
             this.layoutControlItem10.Control = this.datesPanel;
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem10.MaxSize = new System.Drawing.Size(0, 34);
+            this.layoutControlItem10.MinSize = new System.Drawing.Size(5, 34);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(843, 59);
+            this.layoutControlItem10.Size = new System.Drawing.Size(843, 34);
+            this.layoutControlItem10.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
@@ -1118,6 +1148,41 @@ namespace Contacts
             this.dbLoader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.dbLoader_DoWork);
             this.dbLoader.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.dbLoader_RunWorkerCompleted);
             // 
+            // splitterItem1
+            // 
+            this.splitterItem1.AllowHotTrack = true;
+            this.splitterItem1.Location = new System.Drawing.Point(0, 43);
+            this.splitterItem1.Name = "splitterItem1";
+            this.splitterItem1.Size = new System.Drawing.Size(815, 5);
+            // 
+            // emptySpaceItem8
+            // 
+            this.emptySpaceItem8.AllowHotTrack = false;
+            this.emptySpaceItem8.Location = new System.Drawing.Point(805, 0);
+            this.emptySpaceItem8.Name = "emptySpaceItem8";
+            this.emptySpaceItem8.Size = new System.Drawing.Size(10, 43);
+            this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem7
+            // 
+            this.emptySpaceItem7.AllowHotTrack = false;
+            this.emptySpaceItem7.Location = new System.Drawing.Point(0, 0);
+            this.emptySpaceItem7.Name = "emptySpaceItem7";
+            this.emptySpaceItem7.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.emptySpaceItem7.OptionsTableLayoutItem.RowIndex = 1;
+            this.emptySpaceItem7.Size = new System.Drawing.Size(375, 10);
+            this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlGroup4
+            // 
+            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.emptySpaceItem7});
+            this.layoutControlGroup4.Location = new System.Drawing.Point(399, 52);
+            this.layoutControlGroup4.Name = "layoutControlGroup4";
+            this.layoutControlGroup4.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.layoutControlGroup4.OptionsTableLayoutItem.RowIndex = 1;
+            this.layoutControlGroup4.Size = new System.Drawing.Size(399, 52);
+            // 
             // MainForm
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -1135,6 +1200,7 @@ namespace Contacts
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer1)).EndInit();
             this.tileBarDropDownContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
@@ -1174,16 +1240,13 @@ namespace Contacts
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datesPanel)).EndInit();
             this.datesPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
-            this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            this.datesPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateEdit.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startDateEdit.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EventsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
@@ -1194,6 +1257,10 @@ namespace Contacts
             this.gridSplitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1258,7 +1325,7 @@ namespace Contacts
         private BandedGridColumn idCol;
         private DevExpress.XtraEditors.SimpleButton newOrderBtn;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
-        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem3;
+        private DevExpress.XtraBars.Navigation.TileBarItem EventsBarItem;
         private BandedGridColumn bDayCol;
         private GridBand gridBand1;
         private GridBand gridBand2;
@@ -1274,14 +1341,20 @@ namespace Contacts
         private DevExpress.XtraGrid.Columns.GridColumn TimeCol;
         private DevExpress.XtraGrid.Columns.GridColumn dateCol;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraEditors.PanelControl datesPanel;
-        private DevExpress.XtraLayout.LayoutControl layoutControl2;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private DevExpress.XtraEditors.DateEdit dateEdit2;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
+        private DevExpress.XtraLayout.SplitterItem splitterItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem8;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem7;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.DateEdit endDateEdit;
+        private DevExpress.XtraEditors.DateEdit startDateEdit;
+        private DevExpress.XtraEditors.SimpleButton dictionaryListBtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private DevExpress.XtraEditors.SimpleButton uploadEventsBtn;
+        private DevExpress.XtraEditors.SimpleButton importEventsBtn;
     }
 }

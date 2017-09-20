@@ -157,6 +157,12 @@
   <ItemGroup>
     <Compile Include="ApplicatiomContext.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="ImportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportForm.Designer.cs">
+      <DependentUpon>ImportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyEvent.cs" />
     <Compile Include="MyGoogleCalendar.cs" />
     <Compile Include="Order.cs" />
@@ -175,6 +181,26 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceForm.Designer.cs">
+      <DependentUpon>ServiceForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ServiceForm.resx">
+      <DependentUpon>ServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Resources\import %281%29.png" />
+    <None Include="Resources\import.png" />
+    <None Include="Resources\refresh-page-option.png" />
+    <None Include="Resources\play-button.png" />
+    <None Include="Resources\calendar.png" />
+    <None Include="Resources\listing-option %282%29.png" />
+    <None Include="Resources\listing-option %281%29.png" />
+    <None Include="Resources\listing-option.png" />
+    <EmbeddedResource Include="ImportForm.resx">
+      <DependentUpon>ImportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
