@@ -30,59 +30,84 @@
         {
             this.components = new System.ComponentModel.Container();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.pricesView = new System.Windows.Forms.ListView();
-            this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Short = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.FullName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gcServices = new DevExpress.XtraGrid.GridControl();
+            this.gvServices = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colShort = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcServices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvServices)).BeginInit();
             this.SuspendLayout();
             // 
-            // pricesView
+            // gcServices
             // 
-            this.pricesView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Id,
-            this.Short,
-            this.FullName});
-            this.pricesView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pricesView.FullRowSelect = true;
-            this.pricesView.GridLines = true;
-            this.pricesView.LabelEdit = true;
-            this.pricesView.Location = new System.Drawing.Point(0, 0);
-            this.pricesView.Name = "pricesView";
-            this.pricesView.Size = new System.Drawing.Size(492, 221);
-            this.pricesView.TabIndex = 0;
-            this.pricesView.UseCompatibleStateImageBehavior = false;
-            this.pricesView.View = System.Windows.Forms.View.Details;
+            this.gcServices.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcServices.Location = new System.Drawing.Point(0, 0);
+            this.gcServices.MainView = this.gvServices;
+            this.gcServices.Name = "gcServices";
+            this.gcServices.Size = new System.Drawing.Size(492, 221);
+            this.gcServices.TabIndex = 1;
+            this.gcServices.UseEmbeddedNavigator = true;
+            this.gcServices.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvServices});
             // 
-            // Id
+            // gvServices
             // 
-            this.Id.Text = "Id";
-            this.Id.Width = 0;
+            this.gvServices.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colId,
+            this.colShort,
+            this.colName});
+            this.gvServices.GridControl = this.gcServices;
+            this.gvServices.Name = "gvServices";
+            this.gvServices.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDown;
+            this.gvServices.OptionsNavigation.AutoFocusNewRow = true;
+            this.gvServices.OptionsView.ShowGroupPanel = false;
+            this.gvServices.RowDeleting += new DevExpress.Data.RowDeletingEventHandler(this.gvServices_RowDeleting);
+            this.gvServices.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gvServices_RowUpdated);
             // 
-            // Short
+            // colId
             // 
-            this.Short.Text = "Коротко";
-            this.Short.Width = 92;
+            this.colId.Caption = "Id";
+            this.colId.FieldName = "Id";
+            this.colId.Name = "colId";
+            this.colId.Visible = true;
+            this.colId.VisibleIndex = 2;
             // 
-            // FullName
+            // colShort
             // 
-            this.FullName.Text = "Полное название";
-            this.FullName.Width = 396;
+            this.colShort.Caption = "Коротко";
+            this.colShort.FieldName = "Short";
+            this.colShort.MaxWidth = 75;
+            this.colShort.Name = "colShort";
+            this.colShort.Visible = true;
+            this.colShort.VisibleIndex = 0;
+            // 
+            // colName
+            // 
+            this.colName.Caption = "Полное";
+            this.colName.FieldName = "Name";
+            this.colName.Name = "colName";
+            this.colName.Visible = true;
+            this.colName.VisibleIndex = 1;
             // 
             // ServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 221);
-            this.Controls.Add(this.pricesView);
+            this.Controls.Add(this.gcServices);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(508, 260);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(508, 260);
             this.Name = "ServiceForm";
             this.Text = "ServiceForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServiceForm_FormClosing);
             this.Load += new System.EventHandler(this.ServiceForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcServices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvServices)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -90,9 +115,10 @@
         #endregion
 
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
-        private System.Windows.Forms.ListView pricesView;
-        private System.Windows.Forms.ColumnHeader Id;
-        private System.Windows.Forms.ColumnHeader Short;
-        private System.Windows.Forms.ColumnHeader FullName;
+        private DevExpress.XtraGrid.GridControl gcServices;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvServices;
+        private DevExpress.XtraGrid.Columns.GridColumn colId;
+        private DevExpress.XtraGrid.Columns.GridColumn colShort;
+        private DevExpress.XtraGrid.Columns.GridColumn colName;
     }
 }

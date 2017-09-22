@@ -35,6 +35,8 @@ namespace Contacts
         AutoCompleteStringCollection collection;
         Client _clientEdit;
 
+        ServiceForm _sf = null;
+
         private void CheckClientData()
         {
             if ((_clients == null && !dbLoader.IsBusy) || _haveNewClient)
@@ -394,8 +396,9 @@ namespace Contacts
 
         private void dictionaryListBtn_Click(object sender, EventArgs e)
         {
-            var s = new ServiceForm(_prices);
-            s.Show();
+            _sf = new ServiceForm(_prices);
+            _sf.ShowDialog();
+            var p = _sf.GetEditedPrices();
         }
 
         private void tileBarItem3_ItemClick(object sender, TileItemEventArgs e)
