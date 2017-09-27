@@ -133,7 +133,7 @@ namespace Contacts
                                 Commentary = comments.Length >= 5 ? comments[4] : ""
                             };
                             var fullNameItem = prices.Where(p => p.Short == myEvent.Items).FirstOrDefault()?.Name;
-                            myEvent.Items = fullNameItem != "" ? fullNameItem : myEvent.Items;
+                            myEvent.Items = fullNameItem != null ? fullNameItem : myEvent.Items;
 
                             myEvents.Add(myEvent);
                         }

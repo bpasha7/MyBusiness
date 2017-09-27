@@ -31,9 +31,16 @@ namespace Contacts
         #region Clients data
         List<Client> _clients;
         List<Price> _prices;
+        List<MyEvent> _events;
+        int _lastInsertedId = 0;
         bool _haveNewClient = false;
         AutoCompleteStringCollection collection;
         Client _clientEdit;
+
+        public int GetLastId()
+        {
+            return _lastInsertedId;
+        }
 
         ServiceForm _sf = null;
 
@@ -45,16 +52,16 @@ namespace Contacts
                 clientBarItem.Checked = false;
                 dbLoader.DoWork += (obj, e) => LoadClients();
                 dbLoader.RunWorkerCompleted += dbLoader_RunWorkerCompleted;
-               dbLoader.RunWorkerAsync();
+                dbLoader.RunWorkerAsync();
             }
         }
 
         private void CheckPriceData()
         {
-            if ((_prices == null && !dbLoader.IsBusy))
+            if ((!dbLoader.IsBusy))
             {
                 this.Text = "Загрузка списка услуг...";
-                clientBarItem.Checked = false;
+                EventsBarItem.Checked = false;
                 //dbLoader.DoWork  null;
                 var bg_worker = new BackgroundWorker();
                 bg_worker.DoWork += (obj, e) => LoadPrices();
@@ -69,14 +76,14 @@ namespace Contacts
             {
                 _prices = db.Prices.ToList();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
             finally
             {
 
-            }          
+            }
         }
 
 
@@ -96,7 +103,7 @@ namespace Contacts
         #endregion
 
         object _lock;
-        private bool DoActionWithData(string TableName, string Action, object Item)
+        private bool DoActionWithData(string TableName, string Action, DbEntitie Item)
         {
 
             _lock = new object();
@@ -115,20 +122,50 @@ namespace Contacts
                                     break;
                                 case "update":
                                     // db.Clients.Attach(Item as Client);
-                                    var client = Item as Client;
-                                    var upd = $"update Clients set LastName = '{client.LastName}', Name = '{client.Name}', Phone = '{client.Phone}', Email = '{client.Email}' where Id = {client.Id}";
-                                    var res = db.Database.ExecuteSqlCommand(upd);
-                                    if (res != 1)
-                                        throw new Exception("Ошибка обновления клиента!");
+                                    /* var client = Item as Client;
+                                     var upd = $"update Clients set LastName = '{client.LastName}', Name = '{client.Name}', Phone = '{client.Phone}', Email = '{client.Email}' where Id = {client.Id}";
+                                     var res = db.Database.ExecuteSqlCommand(upd);
+                                     if (res != 1)
+                                         throw new Exception("Ошибка обновления клиента!");*/
+                                    db.Entry(Item as Client).State = System.Data.Entity.EntityState.Modified;
                                     break;
                                 case "delete":
                                     db.Clients.Remove(Item as Client);
                                     break;
                             }
                             break;
+                        case "Prices":
+                            switch (Action)
+                            {
+                                case "insert":
+                                    db.Prices.Add(Item as Price);
+                                    break;
+                                case "update":
+                                    db.Entry(Item as Price).State = System.Data.Entity.EntityState.Modified;
+                                    break;
+                                case "delete":
+                                    db.Prices.Remove(Item as Price);
+                                    break;
+                            }
+                            break;
+                        case "Orders":
+                            switch (Action)
+                            {
+                                case "insert":
+                                    db.Orders.Add(Item as Order);
+                                    break;
+                                case "update":
+                                    db.Entry(Item as Order).State = System.Data.Entity.EntityState.Modified;
+                                    break;
+                                case "delete":
+                                    db.Orders.Remove(Item as Order);
+                                    break;
+                            }
+                            break;
                         default: return false;
                     }
                     db.SaveChanges();
+                    _lastInsertedId = Item.Id;
                     return true;
                 }
                 catch (Exception ex)
@@ -272,6 +309,7 @@ namespace Contacts
             this.Text = "";
             dictionaryListBtn.Enabled = true;
             await ClearFormCaption();
+            EventsBarItem.Checked = false;
         }
 
         private void dbLoader_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -285,6 +323,8 @@ namespace Contacts
                     collection.Add($"{c.LastName} {c.Name}");
             });
             this.Text = "";
+            if (_prices == null)
+                CheckPriceData();
         }
 
         private void bandedGridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
@@ -341,13 +381,14 @@ namespace Contacts
         {
             await Task.Run(() => Thread.Sleep(2000));
             this.Text = "";
+            EventsBarItem.Checked = false;
             pricesBarItem.Checked = false;
             clientBarItem.Checked = false;
         }
 
         private async void tileBarItem3_ItemDoubleClick(object sender, TileItemEventArgs e)
         {
-           
+            CheckPriceData();
         }
 
         private void EventsGrid_Resize(object sender, EventArgs e)
@@ -374,22 +415,73 @@ namespace Contacts
                 MessageBox.Show(_calendar.GetStatus());
             this.Text = _calendar.GetStatus();
             this.Text = "Загрузка событий...";
-            var events = await _calendar.GetEventsAsync(startDateEdit.DateTime, endDateEdit.DateTime.AddDays(1), _prices);
-            EventsGrid.DataSource = events;
+            _events = await _calendar.GetEventsAsync(startDateEdit.DateTime, endDateEdit.DateTime.AddDays(1), _prices);
+            EventsGrid.DataSource = _events;
             this.Text = _calendar.GetStatus();
             gridView1.GroupPanelText = $"Записи с {startDateEdit.DateTime.ToShortDateString()} по {endDateEdit.DateTime.ToShortDateString()}";
             gridView1.SelectAll();
-            await ClearFormCaption();            
+            await ClearFormCaption();
         }
 
-        private void importEventsBtn_Click(object sender, EventArgs e)
+        private async void importEventsBtn_Click(object sender, EventArgs e)
         {
-            var f = new ImportForm();
-            f.Show();
+            var clientsAdded = 0;
+            var clientsFails = 0;
+            var ordersFails = 0;
+            var ordersAdded = 0;
+            foreach (var index in gridView1.GetSelectedRows())
+            {
+                var item = gridView1.GetRow(index) as MyEvent;
+                var foundedClients = _clients.Where(c => $"{c.LastName} {c.Name}".ToLower() == item.Name.ToLower());
+                Client client = null;
+                if (foundedClients.Count() == 1)
+                {
+                    client = foundedClients.First();
+
+                }
+                else if (foundedClients.Count() == 0)
+                {
+                    var clientName = item.Name.Split(' ');
+                    client = new Client
+                    {
+                        LastName = clientName[0],
+                        Name = clientName[1],
+                        Phone = item.Phone
+                    };
+                    if (!DoActionWithData("Clients", "insert", client))
+                        clientsFails++;
+                    client.Id = _lastInsertedId;
+                    clientsAdded++;
+                }
+                else
+                {
+                    continue;
+                }
+                var order = new Order
+                {
+                    ClientId = client.Id,
+                    Date = item.Date,
+                    Payment = item.Payment,
+                    PriceId = (int)_prices?.Where(p => p.Name == item.Items || p.Short == item.Items).FirstOrDefault().Id,
+                    CalendarId = item.Id
+                };
+                if (!DoActionWithData("Orders", "insert", order))
+                    ordersFails++;
+                ordersAdded++;
+            }
+            if(clientsFails != 0 || ordersFails != 0)
+                MessageBox.Show($"Ошибки: добавления клиентов {clientsFails}; занесения услуг {ordersFails}.");
+            this.Text = $"Новых клиентов {clientsAdded}. Занесено в базу услуг {ordersAdded}.";
+            await ClearFormCaption();
+            //var f = new ImportForm();
+            //f.Show();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            CheckClientData();
+            DateOrdersEnd.DateTime = DateTime.Now;
+            dateOrdersStart.DateTime = DateTime.Now.AddDays( -DateTime.Now.Day + 1);
             startDateEdit.DateTime = DateTime.Now;
             endDateEdit.DateTime = DateTime.Now.AddDays(1);
         }
@@ -397,13 +489,33 @@ namespace Contacts
         private void dictionaryListBtn_Click(object sender, EventArgs e)
         {
             _sf = new ServiceForm(_prices);
+            _sf.DoAction += this.DoActionWithData;
+            _sf.GetId += this.GetLastId;
             _sf.ShowDialog();
-            var p = _sf.GetEditedPrices();
+            _prices = _sf.GetEditedPrices();
         }
 
         private void tileBarItem3_ItemClick(object sender, TileItemEventArgs e)
         {
-            CheckPriceData();
+            //CheckPriceData();
+        }
+
+        private void showOrdersInfoBtn_Click(object sender, EventArgs e)
+        {
+            var ordersInfo = new List<OrderInfo>();
+            foreach (var order in db.Orders.Where(o => o.Date >= dateOrdersStart.DateTime && o.Date <= DateOrdersEnd.DateTime && o.Left == false))
+            {
+                ordersInfo.Add(new OrderInfo
+                {
+                    ClientName = _clients?.Where(c => c.Id == order.ClientId).SingleOrDefault()?.FullName,
+                    Payment = order.Payment,
+                    Date = order.Date,
+                    PriceName = _prices?.Where(p => p.Id == order.PriceId).FirstOrDefault()?.Name
+                });
+            }
+            gcOrdersInfo.DataSource = ordersInfo;
+            gvOrdersInfo.GroupPanelText = $"Поступления с {dateOrdersStart.DateTime.ToShortDateString()} по {DateOrdersEnd.DateTime.ToShortDateString()}";
+
         }
     }
 }

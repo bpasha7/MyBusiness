@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Contacts
 {
-    public class Client
+    public class Client : DbEntitie
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string Name { get; set; }
         public string LastName { set; get; }
         public string Phone { get; set; }
@@ -30,6 +30,7 @@ namespace Contacts
             }
         }
 
+        public string FullName { get { return $"{LastName} {Name}"; } }
         public Image Base64ToImage()
         {
             if (Picture == null)

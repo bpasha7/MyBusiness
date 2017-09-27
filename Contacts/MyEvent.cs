@@ -19,6 +19,5 @@ namespace Contacts
         public decimal Prepayment { get; set; }
         public string Name { get; set; }
         public string Items { get; set; }
-
     }
 }

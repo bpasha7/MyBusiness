@@ -157,6 +157,7 @@
   <ItemGroup>
     <Compile Include="ApplicatiomContext.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="DbEntitie.cs" />
     <Compile Include="ImportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +173,7 @@
     <Compile Include="OrderForm.Designer.cs">
       <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrdersFullReport.cs" />
     <Compile Include="Price.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -187,6 +189,8 @@
     <Compile Include="ServiceForm.Designer.cs">
       <DependentUpon>ServiceForm.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\show.png" />
+    <None Include="Resources\eye.png" />
     <EmbeddedResource Include="ServiceForm.resx">
       <DependentUpon>ServiceForm.cs</DependentUpon>
     </EmbeddedResource>
