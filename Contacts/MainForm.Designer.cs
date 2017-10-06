@@ -33,11 +33,11 @@ namespace Contacts
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.TileItemElement tileItemElement10 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement11 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement12 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement13 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tileBar = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroupTables = new DevExpress.XtraBars.Navigation.TileBarGroup();
@@ -271,9 +271,9 @@ namespace Contacts
             this.clientBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Black;
             this.clientBarItem.DropDownOptions.CloseOnOuterClick = DevExpress.Utils.DefaultBoolean.True;
             this.clientBarItem.DropDownOptions.Height = 50;
-            tileItemElement10.Image = global::Contacts.Properties.Resources.woman;
-            tileItemElement10.Text = "Клиенты";
-            this.clientBarItem.Elements.Add(tileItemElement10);
+            tileItemElement1.Image = global::Contacts.Properties.Resources.woman;
+            tileItemElement1.Text = "Клиенты";
+            this.clientBarItem.Elements.Add(tileItemElement1);
             this.clientBarItem.Name = "clientBarItem";
             this.clientBarItem.ItemDoubleClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.eployeesTileBarItem_ItemDoubleClick);
             this.clientBarItem.ItemPress += new DevExpress.XtraEditors.TileItemClickEventHandler(this.eployeesTileBarItem_ItemPress);
@@ -319,9 +319,9 @@ namespace Contacts
             this.pricesBarItem.AppearanceItem.Normal.Options.UseBackColor = true;
             this.pricesBarItem.AppearanceItem.Normal.Options.UseFont = true;
             this.pricesBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement6.Image = global::Contacts.Properties.Resources.get_money;
-            tileItemElement6.Text = "Поступления";
-            this.pricesBarItem.Elements.Add(tileItemElement6);
+            tileItemElement2.Image = global::Contacts.Properties.Resources.get_money;
+            tileItemElement2.Text = "Поступления";
+            this.pricesBarItem.Elements.Add(tileItemElement2);
             this.pricesBarItem.Id = 2;
             this.pricesBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.pricesBarItem.Name = "pricesBarItem";
@@ -332,9 +332,9 @@ namespace Contacts
             this.EventsBarItem.AppearanceItem.Normal.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.EventsBarItem.AppearanceItem.Normal.Options.UseBackColor = true;
             this.EventsBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement11.Image = global::Contacts.Properties.Resources.calendar_with_a_clock_time_tools;
-            tileItemElement11.Text = "Записи";
-            this.EventsBarItem.Elements.Add(tileItemElement11);
+            tileItemElement3.Image = global::Contacts.Properties.Resources.calendar_with_a_clock_time_tools;
+            tileItemElement3.Text = "Записи";
+            this.EventsBarItem.Elements.Add(tileItemElement3);
             this.EventsBarItem.Id = 6;
             this.EventsBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.EventsBarItem.Name = "EventsBarItem";
@@ -348,9 +348,9 @@ namespace Contacts
             this.tileBarItem1.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem1.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement12.Image = global::Contacts.Properties.Resources.makeup_brushes1;
-            tileItemElement12.Text = "Материалы";
-            this.tileBarItem1.Elements.Add(tileItemElement12);
+            tileItemElement4.Image = global::Contacts.Properties.Resources.makeup_brushes1;
+            tileItemElement4.Text = "Материалы";
+            this.tileBarItem1.Elements.Add(tileItemElement4);
             this.tileBarItem1.Id = 3;
             this.tileBarItem1.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem1.Name = "tileBarItem1";
@@ -358,9 +358,9 @@ namespace Contacts
             // tileBarItem2
             // 
             this.tileBarItem2.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement13.Image = global::Contacts.Properties.Resources.newspaper;
-            tileItemElement13.Text = "Отчеты";
-            this.tileBarItem2.Elements.Add(tileItemElement13);
+            tileItemElement5.Image = global::Contacts.Properties.Resources.newspaper;
+            tileItemElement5.Text = "Отчеты";
+            this.tileBarItem2.Elements.Add(tileItemElement5);
             this.tileBarItem2.Id = 4;
             this.tileBarItem2.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem2.Name = "tileBarItem2";
@@ -384,6 +384,7 @@ namespace Contacts
             this.navigationFrame.Size = new System.Drawing.Size(863, 447);
             this.navigationFrame.TabIndex = 0;
             this.navigationFrame.Text = "navigationFrame";
+            this.navigationFrame.TransitionAnimationProperties.FrameCount = 0;
             this.navigationFrame.Click += new System.EventHandler(this.navigationFrame_Click);
             // 
             // employeesNavigationPage
