@@ -42,13 +42,13 @@ namespace Contacts
             this.tileBar = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroupTables = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.clientBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarDropDownContainer1 = new DevExpress.XtraBars.Navigation.TileBarDropDownContainer();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.pricesBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.EventsBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarItem1 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarItem2 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarDropDownContainer1 = new DevExpress.XtraBars.Navigation.TileBarDropDownContainer();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.employeesNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.clientsGridControl = new DevExpress.XtraGrid.GridControl();
@@ -71,6 +71,7 @@ namespace Contacts
             this.linkEdit = new DevExpress.XtraEditors.TextEdit();
             this.submitBtn = new DevExpress.XtraEditors.SimpleButton();
             this.emailEdit = new DevExpress.XtraEditors.TextEdit();
+            this.historyBtn = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -81,11 +82,10 @@ namespace Contacts
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.customersNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -134,6 +134,24 @@ namespace Contacts
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
+            this.gcMaterial = new DevExpress.XtraGrid.GridControl();
+            this.gvMaterial = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.materialBtnShow = new DevExpress.XtraEditors.SimpleButton();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.dateMaterialEnd = new DevExpress.XtraEditors.DateEdit();
+            this.dateMaterialStart = new DevExpress.XtraEditors.DateEdit();
+            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.gridSplitContainer1 = new DevExpress.XtraGrid.GridSplitContainer();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -141,6 +159,12 @@ namespace Contacts
             this.dbLoader = new System.ComponentModel.BackgroundWorker();
             this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
             this.emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.notify = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextNotify = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.открытьЛогToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cancelBtn = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer1)).BeginInit();
             this.tileBarDropDownContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
@@ -169,11 +193,10 @@ namespace Contacts
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             this.customersNavigationPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
@@ -205,6 +228,22 @@ namespace Contacts
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+            this.navigationPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
+            this.layoutControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcMaterial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvMaterial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
+            this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateMaterialEnd.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateMaterialEnd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateMaterialStart.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateMaterialStart.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).BeginInit();
             this.gridSplitContainer1.SuspendLayout();
@@ -212,6 +251,9 @@ namespace Contacts
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).BeginInit();
+            this.contextNotify.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
             this.SuspendLayout();
             // 
             // tileBar
@@ -242,7 +284,7 @@ namespace Contacts
             this.tileBar.SelectionBorderWidth = 2;
             this.tileBar.SelectionColorMode = DevExpress.XtraBars.Navigation.SelectionColorMode.UseItemBackColor;
             this.tileBar.ShowGroupText = false;
-            this.tileBar.Size = new System.Drawing.Size(863, 80);
+            this.tileBar.Size = new System.Drawing.Size(779, 80);
             this.tileBar.TabIndex = 1;
             this.tileBar.Text = "tileBar";
             this.tileBar.WideTileWidth = 150;
@@ -265,7 +307,6 @@ namespace Contacts
             this.clientBarItem.AppearanceItem.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.clientBarItem.AppearanceItem.Normal.Options.UseBackColor = true;
             this.clientBarItem.AppearanceItem.Normal.Options.UseFont = true;
-            this.clientBarItem.DropDownControl = this.tileBarDropDownContainer1;
             this.clientBarItem.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.False;
             this.clientBarItem.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
             this.clientBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Black;
@@ -277,40 +318,6 @@ namespace Contacts
             this.clientBarItem.Name = "clientBarItem";
             this.clientBarItem.ItemDoubleClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.eployeesTileBarItem_ItemDoubleClick);
             this.clientBarItem.ItemPress += new DevExpress.XtraEditors.TileItemClickEventHandler(this.eployeesTileBarItem_ItemPress);
-            // 
-            // tileBarDropDownContainer1
-            // 
-            this.tileBarDropDownContainer1.Appearance.BackColor = System.Drawing.Color.White;
-            this.tileBarDropDownContainer1.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal;
-            this.tileBarDropDownContainer1.Appearance.Options.UseBackColor = true;
-            this.tileBarDropDownContainer1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tileBarDropDownContainer1.Controls.Add(this.textEdit1);
-            this.tileBarDropDownContainer1.Controls.Add(this.simpleButton1);
-            this.tileBarDropDownContainer1.Location = new System.Drawing.Point(770, 386);
-            this.tileBarDropDownContainer1.Name = "tileBarDropDownContainer1";
-            this.tileBarDropDownContainer1.Size = new System.Drawing.Size(389, 49);
-            this.tileBarDropDownContainer1.TabIndex = 0;
-            this.tileBarDropDownContainer1.Enter += new System.EventHandler(this.tileBarDropDownContainer1_Enter);
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.EditValue = "Фамилия для поиска";
-            this.textEdit1.Location = new System.Drawing.Point(12, 14);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Properties.NullText = "Фамилия или имя для поиска";
-            this.textEdit1.Size = new System.Drawing.Size(232, 26);
-            this.textEdit1.TabIndex = 1;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(267, 12);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 28);
-            this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "Выбрать";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // pricesBarItem
             // 
@@ -349,11 +356,12 @@ namespace Contacts
             this.tileBarItem1.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
             tileItemElement4.Image = global::Contacts.Properties.Resources.makeup_brushes1;
-            tileItemElement4.Text = "Материалы";
+            tileItemElement4.Text = "Расходы";
             this.tileBarItem1.Elements.Add(tileItemElement4);
             this.tileBarItem1.Id = 3;
             this.tileBarItem1.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem1.Name = "tileBarItem1";
+            this.tileBarItem1.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem1_ItemClick);
             // 
             // tileBarItem2
             // 
@@ -364,6 +372,40 @@ namespace Contacts
             this.tileBarItem2.Id = 4;
             this.tileBarItem2.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem2.Name = "tileBarItem2";
+            // 
+            // tileBarDropDownContainer1
+            // 
+            this.tileBarDropDownContainer1.Appearance.BackColor = System.Drawing.Color.White;
+            this.tileBarDropDownContainer1.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal;
+            this.tileBarDropDownContainer1.Appearance.Options.UseBackColor = true;
+            this.tileBarDropDownContainer1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tileBarDropDownContainer1.Controls.Add(this.textEdit1);
+            this.tileBarDropDownContainer1.Controls.Add(this.simpleButton1);
+            this.tileBarDropDownContainer1.Location = new System.Drawing.Point(12, 376);
+            this.tileBarDropDownContainer1.Name = "tileBarDropDownContainer1";
+            this.tileBarDropDownContainer1.Size = new System.Drawing.Size(463, 109);
+            this.tileBarDropDownContainer1.TabIndex = 0;
+            this.tileBarDropDownContainer1.Enter += new System.EventHandler(this.tileBarDropDownContainer1_Enter);
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.EditValue = "Фамилия для поиска";
+            this.textEdit1.Location = new System.Drawing.Point(12, 14);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textEdit1.Properties.Appearance.Options.UseFont = true;
+            this.textEdit1.Properties.NullText = "Фамилия или имя для поиска";
+            this.textEdit1.Size = new System.Drawing.Size(232, 26);
+            this.textEdit1.TabIndex = 1;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(267, 12);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(75, 28);
+            this.simpleButton1.TabIndex = 0;
+            this.simpleButton1.Text = "Выбрать";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // navigationFrame
             // 
@@ -381,7 +423,7 @@ namespace Contacts
             this.dbNavigationPage,
             this.navigationPage1});
             this.navigationFrame.SelectedPage = this.employeesNavigationPage;
-            this.navigationFrame.Size = new System.Drawing.Size(863, 447);
+            this.navigationFrame.Size = new System.Drawing.Size(779, 413);
             this.navigationFrame.TabIndex = 0;
             this.navigationFrame.Text = "navigationFrame";
             this.navigationFrame.TransitionAnimationProperties.FrameCount = 0;
@@ -392,7 +434,7 @@ namespace Contacts
             this.employeesNavigationPage.Controls.Add(this.clientsGridControl);
             this.employeesNavigationPage.Controls.Add(this.newUserControl);
             this.employeesNavigationPage.Name = "employeesNavigationPage";
-            this.employeesNavigationPage.Size = new System.Drawing.Size(863, 447);
+            this.employeesNavigationPage.Size = new System.Drawing.Size(779, 413);
             // 
             // clientsGridControl
             // 
@@ -401,10 +443,11 @@ namespace Contacts
             this.clientsGridControl.Location = new System.Drawing.Point(0, 0);
             this.clientsGridControl.MainView = this.bandedGridView1;
             this.clientsGridControl.Name = "clientsGridControl";
-            this.clientsGridControl.Size = new System.Drawing.Size(863, 447);
+            this.clientsGridControl.Size = new System.Drawing.Size(779, 413);
             this.clientsGridControl.TabIndex = 3;
             this.clientsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.bandedGridView1});
+            this.clientsGridControl.DoubleClick += new System.EventHandler(this.clientsGridControl_DoubleClick);
             // 
             // bandedGridView1
             // 
@@ -447,6 +490,7 @@ namespace Contacts
             this.idCol.Caption = "#";
             this.idCol.FieldName = "Id";
             this.idCol.Name = "idCol";
+            this.idCol.OptionsColumn.ReadOnly = true;
             this.idCol.Width = 20;
             // 
             // lastNameCol
@@ -484,6 +528,7 @@ namespace Contacts
             this.bDayCol.Caption = "День рождения";
             this.bDayCol.FieldName = "Birthday";
             this.bDayCol.Name = "bDayCol";
+            this.bDayCol.OptionsColumn.ReadOnly = true;
             this.bDayCol.Visible = true;
             // 
             // gridBand2
@@ -544,6 +589,7 @@ namespace Contacts
             // 
             // newUserControl
             // 
+            this.newUserControl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.newUserControl.Controls.Add(this.birthdayEdit);
             this.newUserControl.Controls.Add(this.nameEdit);
             this.newUserControl.Controls.Add(this.lastNameEdit);
@@ -552,7 +598,9 @@ namespace Contacts
             this.newUserControl.Controls.Add(this.linkEdit);
             this.newUserControl.Controls.Add(this.submitBtn);
             this.newUserControl.Controls.Add(this.emailEdit);
-            this.newUserControl.Location = new System.Drawing.Point(38, 19);
+            this.newUserControl.Controls.Add(this.historyBtn);
+            this.newUserControl.Controls.Add(this.cancelBtn);
+            this.newUserControl.Location = new System.Drawing.Point(139, 42);
             this.newUserControl.Name = "newUserControl";
             this.newUserControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1970, 144, 450, 400);
             this.newUserControl.Root = this.layoutControlGroup1;
@@ -634,7 +682,7 @@ namespace Contacts
             this.submitBtn.Name = "submitBtn";
             this.submitBtn.Size = new System.Drawing.Size(154, 22);
             this.submitBtn.StyleController = this.newUserControl;
-            this.submitBtn.TabIndex = 11;
+            this.submitBtn.TabIndex = 7;
             this.submitBtn.Text = "Ok";
             this.submitBtn.Click += new System.EventHandler(this.submitBtn_Click);
             // 
@@ -647,6 +695,16 @@ namespace Contacts
             this.emailEdit.Size = new System.Drawing.Size(209, 26);
             this.emailEdit.StyleController = this.newUserControl;
             this.emailEdit.TabIndex = 4;
+            // 
+            // historyBtn
+            // 
+            this.historyBtn.Location = new System.Drawing.Point(328, 208);
+            this.historyBtn.Name = "historyBtn";
+            this.historyBtn.Size = new System.Drawing.Size(155, 22);
+            this.historyBtn.StyleController = this.newUserControl;
+            this.historyBtn.TabIndex = 8;
+            this.historyBtn.Text = "Записи";
+            this.historyBtn.Click += new System.EventHandler(this.historyBtn_Click);
             // 
             // layoutControlGroup1
             // 
@@ -662,11 +720,11 @@ namespace Contacts
             this.emptySpaceItem3,
             this.layoutControlItem3,
             this.layoutControlItem7,
-            this.emptySpaceItem5,
-            this.emptySpaceItem6,
             this.emptySpaceItem1,
             this.layoutControlItem8,
-            this.layoutControlItem6});
+            this.layoutControlItem6,
+            this.layoutControlItem15,
+            this.layoutControlItem17});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
@@ -751,24 +809,6 @@ namespace Contacts
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
-            // emptySpaceItem5
-            // 
-            this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 196);
-            this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(158, 26);
-            this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem6
-            // 
-            this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.CustomizationFormText = "emptySpaceItem5";
-            this.emptySpaceItem6.Location = new System.Drawing.Point(316, 196);
-            this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(159, 26);
-            this.emptySpaceItem6.Text = "emptySpaceItem5";
-            this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
@@ -795,12 +835,21 @@ namespace Contacts
             this.layoutControlItem6.Text = "Вконтакте";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(80, 13);
             // 
+            // layoutControlItem15
+            // 
+            this.layoutControlItem15.Control = this.historyBtn;
+            this.layoutControlItem15.Location = new System.Drawing.Point(316, 196);
+            this.layoutControlItem15.Name = "layoutControlItem15";
+            this.layoutControlItem15.Size = new System.Drawing.Size(159, 26);
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem15.TextVisible = false;
+            // 
             // customersNavigationPage
             // 
             this.customersNavigationPage.Controls.Add(this.layoutControl2);
             this.customersNavigationPage.Controls.Add(this.tileBarDropDownContainer1);
             this.customersNavigationPage.Name = "customersNavigationPage";
-            this.customersNavigationPage.Size = new System.Drawing.Size(863, 447);
+            this.customersNavigationPage.Size = new System.Drawing.Size(779, 413);
             // 
             // layoutControl2
             // 
@@ -811,7 +860,7 @@ namespace Contacts
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(417, 272, 450, 400);
             this.layoutControl2.Root = this.layoutControlGroup3;
-            this.layoutControl2.Size = new System.Drawing.Size(863, 447);
+            this.layoutControl2.Size = new System.Drawing.Size(779, 413);
             this.layoutControl2.TabIndex = 1;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -825,7 +874,7 @@ namespace Contacts
             this.panelControl1.Controls.Add(this.dateOrdersStart);
             this.panelControl1.Location = new System.Drawing.Point(12, 12);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(839, 31);
+            this.panelControl1.Size = new System.Drawing.Size(755, 31);
             this.panelControl1.TabIndex = 5;
             // 
             // showOrdersInfoBtn
@@ -891,15 +940,15 @@ namespace Contacts
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(863, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(779, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 527);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 493);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(863, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(779, 0);
             // 
             // barDockControlLeft
             // 
@@ -907,15 +956,15 @@ namespace Contacts
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 527);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 493);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(863, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(779, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 527);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 493);
             // 
             // dateOrdersStart
             // 
@@ -937,7 +986,7 @@ namespace Contacts
             this.gcOrdersInfo.MainView = this.gvOrdersInfo;
             this.gcOrdersInfo.MenuManager = this.barManager1;
             this.gcOrdersInfo.Name = "gcOrdersInfo";
-            this.gcOrdersInfo.Size = new System.Drawing.Size(839, 388);
+            this.gcOrdersInfo.Size = new System.Drawing.Size(755, 354);
             this.gcOrdersInfo.TabIndex = 4;
             this.gcOrdersInfo.UseEmbeddedNavigator = true;
             this.gcOrdersInfo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -972,6 +1021,7 @@ namespace Contacts
             this.colOrderInfoDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colOrderInfoDate.FieldName = "Date";
             this.colOrderInfoDate.Name = "colOrderInfoDate";
+            this.colOrderInfoDate.OptionsColumn.ReadOnly = true;
             this.colOrderInfoDate.Visible = true;
             this.colOrderInfoDate.VisibleIndex = 0;
             // 
@@ -984,6 +1034,7 @@ namespace Contacts
             this.colOrderInfoPayment.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colOrderInfoPayment.FieldName = "Payment";
             this.colOrderInfoPayment.Name = "colOrderInfoPayment";
+            this.colOrderInfoPayment.OptionsColumn.ReadOnly = true;
             this.colOrderInfoPayment.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Payment", "Всего: {0:c0}")});
             this.colOrderInfoPayment.Visible = true;
@@ -994,6 +1045,7 @@ namespace Contacts
             this.colOrderInfoClient.Caption = "Клиент";
             this.colOrderInfoClient.FieldName = "ClientName";
             this.colOrderInfoClient.Name = "colOrderInfoClient";
+            this.colOrderInfoClient.OptionsColumn.ReadOnly = true;
             this.colOrderInfoClient.Visible = true;
             this.colOrderInfoClient.VisibleIndex = 1;
             // 
@@ -1004,6 +1056,7 @@ namespace Contacts
             this.colOrderInfoName.Caption = "Услуга";
             this.colOrderInfoName.FieldName = "PriceName";
             this.colOrderInfoName.Name = "colOrderInfoName";
+            this.colOrderInfoName.OptionsColumn.ReadOnly = true;
             this.colOrderInfoName.Visible = true;
             this.colOrderInfoName.VisibleIndex = 2;
             // 
@@ -1016,7 +1069,7 @@ namespace Contacts
             this.layoutControlItem12});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "Root";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(863, 447);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(779, 413);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // layoutControlItem11
@@ -1025,7 +1078,7 @@ namespace Contacts
             this.layoutControlItem11.Location = new System.Drawing.Point(0, 35);
             this.layoutControlItem11.MinSize = new System.Drawing.Size(104, 24);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(843, 392);
+            this.layoutControlItem11.Size = new System.Drawing.Size(759, 358);
             this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
@@ -1037,7 +1090,7 @@ namespace Contacts
             this.layoutControlItem12.MaxSize = new System.Drawing.Size(0, 35);
             this.layoutControlItem12.MinSize = new System.Drawing.Size(5, 35);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(843, 35);
+            this.layoutControlItem12.Size = new System.Drawing.Size(759, 35);
             this.layoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
@@ -1046,7 +1099,7 @@ namespace Contacts
             // 
             this.dbNavigationPage.Controls.Add(this.layoutControl1);
             this.dbNavigationPage.Name = "dbNavigationPage";
-            this.dbNavigationPage.Size = new System.Drawing.Size(863, 447);
+            this.dbNavigationPage.Size = new System.Drawing.Size(779, 413);
             this.dbNavigationPage.Paint += new System.Windows.Forms.PaintEventHandler(this.dbNavigationPage_Paint);
             // 
             // layoutControl1
@@ -1058,7 +1111,7 @@ namespace Contacts
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1664, 259, 450, 400);
             this.layoutControl1.Root = this.layoutControlGroup2;
-            this.layoutControl1.Size = new System.Drawing.Size(863, 447);
+            this.layoutControl1.Size = new System.Drawing.Size(779, 413);
             this.layoutControl1.TabIndex = 1;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -1074,7 +1127,7 @@ namespace Contacts
             this.datesPanel.Controls.Add(this.startDateEdit);
             this.datesPanel.Location = new System.Drawing.Point(12, 12);
             this.datesPanel.Name = "datesPanel";
-            this.datesPanel.Size = new System.Drawing.Size(839, 30);
+            this.datesPanel.Size = new System.Drawing.Size(755, 30);
             this.datesPanel.TabIndex = 4;
             this.datesPanel.Resize += new System.EventHandler(this.datesPanel_Resize);
             // 
@@ -1111,7 +1164,7 @@ namespace Contacts
             this.dictionaryListBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.dictionaryListBtn.Enabled = false;
             this.dictionaryListBtn.ImageOptions.Image = global::Contacts.Properties.Resources.listing_option__1_;
-            this.dictionaryListBtn.Location = new System.Drawing.Point(802, 1);
+            this.dictionaryListBtn.Location = new System.Drawing.Point(718, 1);
             this.dictionaryListBtn.Name = "dictionaryListBtn";
             this.dictionaryListBtn.Size = new System.Drawing.Size(34, 28);
             this.dictionaryListBtn.TabIndex = 4;
@@ -1166,7 +1219,7 @@ namespace Contacts
             this.EventsGrid.MainView = this.gridView1;
             this.EventsGrid.MenuManager = this.barManager1;
             this.EventsGrid.Name = "EventsGrid";
-            this.EventsGrid.Size = new System.Drawing.Size(839, 389);
+            this.EventsGrid.Size = new System.Drawing.Size(755, 355);
             this.EventsGrid.TabIndex = 0;
             this.EventsGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1311,7 +1364,7 @@ namespace Contacts
             this.layoutControlItem10});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(863, 447);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(779, 413);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem9
@@ -1319,7 +1372,7 @@ namespace Contacts
             this.layoutControlItem9.Control = this.EventsGrid;
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(843, 393);
+            this.layoutControlItem9.Size = new System.Drawing.Size(759, 359);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
@@ -1330,15 +1383,218 @@ namespace Contacts
             this.layoutControlItem10.MaxSize = new System.Drawing.Size(0, 34);
             this.layoutControlItem10.MinSize = new System.Drawing.Size(5, 34);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(843, 34);
+            this.layoutControlItem10.Size = new System.Drawing.Size(759, 34);
             this.layoutControlItem10.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
             // navigationPage1
             // 
+            this.navigationPage1.Controls.Add(this.layoutControl3);
             this.navigationPage1.Name = "navigationPage1";
-            this.navigationPage1.Size = new System.Drawing.Size(863, 447);
+            this.navigationPage1.Size = new System.Drawing.Size(779, 413);
+            // 
+            // layoutControl3
+            // 
+            this.layoutControl3.Controls.Add(this.gcMaterial);
+            this.layoutControl3.Controls.Add(this.panelControl4);
+            this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl3.Name = "layoutControl3";
+            this.layoutControl3.Root = this.layoutControlGroup4;
+            this.layoutControl3.Size = new System.Drawing.Size(779, 413);
+            this.layoutControl3.TabIndex = 0;
+            this.layoutControl3.Text = "layoutControl3";
+            // 
+            // gcMaterial
+            // 
+            this.gcMaterial.EmbeddedNavigator.TextStringFormat = "Запись {0} из {1}";
+            this.gcMaterial.Location = new System.Drawing.Point(12, 48);
+            this.gcMaterial.MainView = this.gvMaterial;
+            this.gcMaterial.MenuManager = this.barManager1;
+            this.gcMaterial.Name = "gcMaterial";
+            this.gcMaterial.Size = new System.Drawing.Size(755, 353);
+            this.gcMaterial.TabIndex = 9;
+            this.gcMaterial.UseEmbeddedNavigator = true;
+            this.gcMaterial.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvMaterial});
+            // 
+            // gvMaterial
+            // 
+            this.gvMaterial.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4});
+            this.gvMaterial.GridControl = this.gcMaterial;
+            this.gvMaterial.GroupPanelText = "Расходы";
+            this.gvMaterial.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, null, this.gridColumn2, "c0", new decimal(new int[] {
+                            0,
+                            0,
+                            0,
+                            0}))});
+            this.gvMaterial.Name = "gvMaterial";
+            this.gvMaterial.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gvMaterial.OptionsSelection.CheckBoxSelectorColumnWidth = 20;
+            this.gvMaterial.OptionsSelection.MultiSelect = true;
+            this.gvMaterial.OptionsView.ShowFooter = true;
+            this.gvMaterial.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gvMaterial_RowUpdated);
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn1.Caption = "Дата";
+            this.gridColumn1.DisplayFormat.FormatString = "d";
+            this.gridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn1.FieldName = "Date";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn2.Caption = "Цена";
+            this.gridColumn2.DisplayFormat.FormatString = "c0";
+            this.gridColumn2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn2.FieldName = "Payment";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Payment", "Всего: {0:c0}")});
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 2;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Материал";
+            this.gridColumn3.FieldName = "Name";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 1;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "gridColumn4";
+            this.gridColumn4.FieldName = "Id";
+            this.gridColumn4.Name = "gridColumn4";
+            // 
+            // panelControl4
+            // 
+            this.panelControl4.Controls.Add(this.materialBtnShow);
+            this.panelControl4.Controls.Add(this.pictureBox5);
+            this.panelControl4.Controls.Add(this.labelControl9);
+            this.panelControl4.Controls.Add(this.labelControl10);
+            this.panelControl4.Controls.Add(this.dateMaterialEnd);
+            this.panelControl4.Controls.Add(this.dateMaterialStart);
+            this.panelControl4.Location = new System.Drawing.Point(12, 12);
+            this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Size = new System.Drawing.Size(755, 30);
+            this.panelControl4.TabIndex = 8;
+            // 
+            // materialBtnShow
+            // 
+            this.materialBtnShow.ImageOptions.Image = global::Contacts.Properties.Resources.show;
+            this.materialBtnShow.Location = new System.Drawing.Point(251, 1);
+            this.materialBtnShow.Name = "materialBtnShow";
+            this.materialBtnShow.Size = new System.Drawing.Size(32, 28);
+            this.materialBtnShow.TabIndex = 6;
+            this.materialBtnShow.Click += new System.EventHandler(this.materialBtnShow_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Contacts.Properties.Resources.calendar;
+            this.pictureBox5.Location = new System.Drawing.Point(6, 3);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox5.TabIndex = 5;
+            this.pictureBox5.TabStop = false;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(142, 10);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(17, 13);
+            this.labelControl9.TabIndex = 3;
+            this.labelControl9.Text = "По:";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(36, 10);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(11, 13);
+            this.labelControl10.TabIndex = 2;
+            this.labelControl10.Text = "С:";
+            // 
+            // dateMaterialEnd
+            // 
+            this.dateMaterialEnd.EditValue = null;
+            this.dateMaterialEnd.Location = new System.Drawing.Point(165, 7);
+            this.dateMaterialEnd.MenuManager = this.barManager1;
+            this.dateMaterialEnd.Name = "dateMaterialEnd";
+            this.dateMaterialEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateMaterialEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateMaterialEnd.Size = new System.Drawing.Size(80, 20);
+            this.dateMaterialEnd.TabIndex = 1;
+            // 
+            // dateMaterialStart
+            // 
+            this.dateMaterialStart.EditValue = null;
+            this.dateMaterialStart.Location = new System.Drawing.Point(53, 7);
+            this.dateMaterialStart.MenuManager = this.barManager1;
+            this.dateMaterialStart.Name = "dateMaterialStart";
+            this.dateMaterialStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateMaterialStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateMaterialStart.Size = new System.Drawing.Size(80, 20);
+            this.dateMaterialStart.TabIndex = 0;
+            // 
+            // layoutControlGroup4
+            // 
+            this.layoutControlGroup4.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup4.GroupBordersVisible = false;
+            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem16,
+            this.simpleSeparator1,
+            this.layoutControlItem14});
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup4.Name = "layoutControlGroup4";
+            this.layoutControlGroup4.Size = new System.Drawing.Size(779, 413);
+            this.layoutControlGroup4.TextVisible = false;
+            // 
+            // layoutControlItem16
+            // 
+            this.layoutControlItem16.Control = this.panelControl4;
+            this.layoutControlItem16.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem16.MaxSize = new System.Drawing.Size(0, 34);
+            this.layoutControlItem16.MinSize = new System.Drawing.Size(5, 34);
+            this.layoutControlItem16.Name = "layoutControlItem16";
+            this.layoutControlItem16.Size = new System.Drawing.Size(759, 34);
+            this.layoutControlItem16.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem16.TextVisible = false;
+            // 
+            // simpleSeparator1
+            // 
+            this.simpleSeparator1.AllowHotTrack = false;
+            this.simpleSeparator1.Location = new System.Drawing.Point(0, 34);
+            this.simpleSeparator1.Name = "simpleSeparator1";
+            this.simpleSeparator1.Size = new System.Drawing.Size(759, 2);
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.gcMaterial;
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 36);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(759, 357);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem14.TextVisible = false;
             // 
             // gridSplitContainer1
             // 
@@ -1379,13 +1635,60 @@ namespace Contacts
             this.emptySpaceItem8.Size = new System.Drawing.Size(10, 43);
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // notify
+            // 
+            this.notify.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notify.ContextMenuStrip = this.contextNotify;
+            this.notify.Icon = ((System.Drawing.Icon)(resources.GetObject("notify.Icon")));
+            this.notify.Visible = true;
+            // 
+            // contextNotify
+            // 
+            this.contextNotify.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.открытьЛогToolStripMenuItem});
+            this.contextNotify.Name = "contextNotify";
+            this.contextNotify.Size = new System.Drawing.Size(144, 26);
+            // 
+            // открытьЛогToolStripMenuItem
+            // 
+            this.открытьЛогToolStripMenuItem.Name = "открытьЛогToolStripMenuItem";
+            this.открытьЛогToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.открытьЛогToolStripMenuItem.Text = "Открыть лог";
+            this.открытьЛогToolStripMenuItem.Click += new System.EventHandler(this.открытьЛогToolStripMenuItem_Click);
+            // 
+            // layoutControlItem13
+            // 
+            this.layoutControlItem13.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem13.Name = "layoutControlItem13";
+            this.layoutControlItem13.Size = new System.Drawing.Size(740, 334);
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(50, 20);
+            // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Location = new System.Drawing.Point(12, 208);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(154, 22);
+            this.cancelBtn.StyleController = this.newUserControl;
+            this.cancelBtn.TabIndex = 9;
+            this.cancelBtn.Text = "Отмена";
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
+            // layoutControlItem17
+            // 
+            this.layoutControlItem17.Control = this.cancelBtn;
+            this.layoutControlItem17.Location = new System.Drawing.Point(0, 196);
+            this.layoutControlItem17.Name = "layoutControlItem17";
+            this.layoutControlItem17.Size = new System.Drawing.Size(158, 26);
+            this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem17.TextVisible = false;
+            // 
             // MainForm
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(863, 527);
+            this.ClientSize = new System.Drawing.Size(779, 493);
             this.Controls.Add(this.navigationFrame);
             this.Controls.Add(this.tileBar);
             this.Controls.Add(this.barDockControlLeft);
@@ -1396,6 +1699,7 @@ namespace Contacts
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer1)).EndInit();
             this.tileBarDropDownContainer1.ResumeLayout(false);
@@ -1425,11 +1729,10 @@ namespace Contacts
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             this.customersNavigationPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
@@ -1463,6 +1766,23 @@ namespace Contacts
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+            this.navigationPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
+            this.layoutControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcMaterial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvMaterial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
+            this.panelControl4.ResumeLayout(false);
+            this.panelControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateMaterialEnd.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateMaterialEnd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateMaterialStart.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateMaterialStart.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).EndInit();
             this.gridSplitContainer1.ResumeLayout(false);
@@ -1470,6 +1790,9 @@ namespace Contacts
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).EndInit();
+            this.contextNotify.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1502,30 +1825,6 @@ namespace Contacts
         private BandedGridColumn telCol;
         private BandedGridColumn linkCol;
         private BandedGridColumn emailCol;
-        private DevExpress.XtraLayout.LayoutControl newUserControl;
-        private DevExpress.XtraEditors.DateEdit birthdayEdit;
-        private DevExpress.XtraEditors.TextEdit nameEdit;
-        private DevExpress.XtraEditors.TextEdit lastNameEdit;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
-        private DevExpress.XtraEditors.TextEdit phoneEdit;
-        private DevExpress.XtraEditors.TextEdit linkEdit;
-        private DevExpress.XtraEditors.SimpleButton submitBtn;
-        private DevExpress.XtraEditors.TextEdit emailEdit;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
@@ -1579,5 +1878,53 @@ namespace Contacts
         private DevExpress.XtraGrid.Columns.GridColumn colOrderInfoPayment;
         private DevExpress.XtraGrid.Columns.GridColumn colOrderInfoClient;
         private DevExpress.XtraGrid.Columns.GridColumn colOrderInfoName;
+        private System.Windows.Forms.NotifyIcon notify;
+        private System.Windows.Forms.ContextMenuStrip contextNotify;
+        private System.Windows.Forms.ToolStripMenuItem открытьЛогToolStripMenuItem;
+        private DevExpress.XtraLayout.LayoutControl layoutControl3;
+        private GridControl gcMaterial;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvMaterial;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraEditors.PanelControl panelControl4;
+        private DevExpress.XtraEditors.SimpleButton materialBtnShow;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.DateEdit dateMaterialEnd;
+        private DevExpress.XtraEditors.DateEdit dateMaterialStart;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
+        private DevExpress.XtraLayout.SimpleSeparator simpleSeparator1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
+        private DevExpress.XtraLayout.LayoutControl newUserControl;
+        private DevExpress.XtraEditors.DateEdit birthdayEdit;
+        private DevExpress.XtraEditors.TextEdit nameEdit;
+        private DevExpress.XtraEditors.TextEdit lastNameEdit;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraEditors.TextEdit phoneEdit;
+        private DevExpress.XtraEditors.TextEdit linkEdit;
+        private DevExpress.XtraEditors.SimpleButton submitBtn;
+        private DevExpress.XtraEditors.TextEdit emailEdit;
+        private DevExpress.XtraEditors.SimpleButton historyBtn;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraEditors.SimpleButton cancelBtn;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
     }
 }

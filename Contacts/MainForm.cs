@@ -16,6 +16,7 @@ using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using System.IO;
 using System.Threading;
+using System.Diagnostics;
 
 namespace Contacts
 {
@@ -28,13 +29,16 @@ namespace Contacts
         /// Лог
         /// </summary>
         private static NLog.Logger _log;
+
+        BindingList<Material> _materials = null;
+
         #region Clients data
         List<Client> _clients;
         List<Price> _prices;
         List<MyEvent> _events;
         int _lastInsertedId = 0;
         bool _haveNewClient = false;
-        AutoCompleteStringCollection collection;
+        //AutoCompleteStringCollection collection;
         Client _clientEdit;
 
         public int GetLastId()
@@ -102,6 +106,8 @@ namespace Contacts
 
         #endregion
 
+
+
         object _lock;
         private bool DoActionWithData(string TableName, string Action, DbEntitie Item)
         {
@@ -111,6 +117,7 @@ namespace Contacts
             {
                 try
                 {
+                    db = new ApplicationContext();
                     switch (TableName)
                     {
                         case "Clients":
@@ -162,6 +169,20 @@ namespace Contacts
                                     break;
                             }
                             break;
+                        case "Materials":
+                            switch (Action)
+                            {
+                                case "insert":
+                                    db.Materials.Add(Item as Material);
+                                    break;
+                                case "update":
+                                    db.Entry(Item as Material).State = System.Data.Entity.EntityState.Modified;
+                                    break;
+                                case "delete":
+                                    db.Materials.Remove(Item as Material);
+                                    break;
+                            }
+                            break;
                         default: return false;
                     }
                     db.SaveChanges();
@@ -170,6 +191,7 @@ namespace Contacts
                 }
                 catch (Exception ex)
                 {
+                    _log.Error($"Ошибка обращения к БД. MESSAGE: {ex}");
                     return false;
                 }
             }
@@ -196,13 +218,14 @@ namespace Contacts
             //обновление
             if (_clientEdit != null)
             {
-                bool resUpdate = DoActionWithData("Clients", "update", _clientEdit);
                 _clientEdit.Birthday = birthdayEdit.DateTime;
                 _clientEdit.Name = nameEdit.Text;
                 _clientEdit.LastName = lastNameEdit.Text;
                 _clientEdit.Email = emailEdit.Text;
                 _clientEdit.Phone = phoneEdit.Text;
                 _clientEdit.Link = linkEdit.Text;
+                _clientEdit.ImageToBase64(pictureEdit1.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
+                bool resUpdate = DoActionWithData("Clients", "update", _clientEdit);
                 if (resUpdate)
                 {
                     _haveNewClient = true;
@@ -214,6 +237,13 @@ namespace Contacts
                     MessageBox.Show($"Клиент {_clientEdit.LastName} {_clientEdit.Name} не обновлен!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+                birthdayEdit.DateTime = DateTime.Now;
+                nameEdit.Text = "";
+                lastNameEdit.Text = "";
+                emailEdit.Text = "";
+                phoneEdit.Text = "";
+                linkEdit.Text = "";
+                pictureEdit1.Image = null;
                 newUserControl.Visible = false;
                 clientsGridControl.Visible = true;
                 return;
@@ -252,24 +282,24 @@ namespace Contacts
         /// <param name="e"></param>
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            _clientEdit = _clients.Where(c => $"{c.LastName} {c.Name}" == textEdit1.Text).First();
-            lastNameEdit.Text = _clientEdit.LastName;
-            pictureEdit1.Image = _clientEdit.Base64ToImage();
-            nameEdit.Text = _clientEdit.Name;
-            birthdayEdit.DateTime = _clientEdit.Birthday;
-            phoneEdit.Text = _clientEdit.Phone;
-            emailEdit.Text = _clientEdit.Email;
-            linkEdit.Text = _clientEdit.Link;
-            newUserControl.Visible = true;
-            clientsGridControl.Visible = false;
+            //_clientEdit = _clients.Where(c => $"{c.LastName} {c.Name}" == textEdit1.Text).First();
+            //lastNameEdit.Text = _clientEdit.LastName;
+            //pictureEdit1.Image = _clientEdit.Base64ToImage();
+            //nameEdit.Text = _clientEdit.Name;
+            //birthdayEdit.DateTime = _clientEdit.Birthday;
+            //phoneEdit.Text = _clientEdit.Phone;
+            //emailEdit.Text = _clientEdit.Email;
+            //linkEdit.Text = _clientEdit.Link;
+            //newUserControl.Visible = true;
+            //clientsGridControl.Visible = false;
         }
 
         private void tileBarDropDownContainer1_Enter(object sender, EventArgs e)
         {
-            textEdit1.MaskBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            textEdit1.MaskBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            textEdit1.MaskBox.AutoCompleteCustomSource = collection;
-            textEdit1.Text = "";
+            //textEdit1.MaskBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            //textEdit1.MaskBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //textEdit1.MaskBox.AutoCompleteCustomSource = collection;
+            //textEdit1.Text = "";
         }
 
         private void employeesNavigationPage_Enter(object sender, EventArgs e)
@@ -316,13 +346,14 @@ namespace Contacts
         {
             clientsGridControl.DataSource = _clients;
             clientBarItem.Checked = true;
-            Task.Run(() =>
-            {
-                collection = new AutoCompleteStringCollection();
-                foreach (var c in _clients)
-                    collection.Add($"{c.LastName} {c.Name}");
-            });
+            //Task.Run(() =>
+            //{
+            //    collection = new AutoCompleteStringCollection();
+            //    foreach (var c in _clients)
+            //        collection.Add($"{c.LastName} {c.Name}");
+            //});
             this.Text = "";
+            notify.ShowBalloonTip(750, "Клиенты загружены", "Список клиентов загружен в программу", ToolTipIcon.Info);
             if (_prices == null)
                 CheckPriceData();
         }
@@ -330,7 +361,17 @@ namespace Contacts
         private void bandedGridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             var focusedRow = bandedGridView1.FocusedRowHandle;
-            var client = bandedGridView1.GetRow(focusedRow);
+            var client = bandedGridView1.GetRow(focusedRow) as Client;
+            _clientEdit = _clients.Where(c => $"{c.LastName} {c.Name}" == client.FullName).First();
+            lastNameEdit.Text = _clientEdit.LastName;
+            pictureEdit1.Image = _clientEdit.Base64ToImage();
+            nameEdit.Text = _clientEdit.Name;
+            birthdayEdit.DateTime = _clientEdit.Birthday;
+            phoneEdit.Text = _clientEdit.Phone;
+            emailEdit.Text = _clientEdit.Email;
+            linkEdit.Text = _clientEdit.Link;
+            newUserControl.Visible = true;
+            clientsGridControl.Visible = false;
         }
 
         private void Import()
@@ -412,12 +453,17 @@ namespace Contacts
         private async void uploadEventsBtn_Click(object sender, EventArgs e)
         {
             if (!_calendar.Auth())
-                MessageBox.Show(_calendar.GetStatus());
+            {
+                notify.ShowBalloonTip(750, "Ошибка", $"Ошибка авторизации в календаре", ToolTipIcon.Error);
+               //MessageBox.Show(_calendar.GetStatus());
+                return;
+            }
             this.Text = _calendar.GetStatus();
             this.Text = "Загрузка событий...";
             _events = await _calendar.GetEventsAsync(startDateEdit.DateTime, endDateEdit.DateTime.AddDays(1), _prices);
             EventsGrid.DataSource = _events;
-            this.Text = _calendar.GetStatus();
+            //this.Text = _calendar.GetStatus();
+            notify.ShowBalloonTip(150, "Импорт данных", _calendar.GetStatus(), ToolTipIcon.None);
             gridView1.GroupPanelText = $"Записи с {startDateEdit.DateTime.ToShortDateString()} по {endDateEdit.DateTime.ToShortDateString()}";
             gridView1.SelectAll();
             await ClearFormCaption();
@@ -431,47 +477,62 @@ namespace Contacts
             var ordersAdded = 0;
             foreach (var index in gridView1.GetSelectedRows())
             {
-                var item = gridView1.GetRow(index) as MyEvent;
-                var foundedClients = _clients.Where(c => $"{c.LastName} {c.Name}".ToLower() == item.Name.ToLower());
-                Client client = null;
-                if (foundedClients.Count() == 1)
+                try
                 {
-                    client = foundedClients.First();
-
-                }
-                else if (foundedClients.Count() == 0)
-                {
-                    var clientName = item.Name.Split(' ');
-                    client = new Client
+                    var item = gridView1.GetRow(index) as MyEvent;
+                    var foundedClients = _clients.Where(c => $"{c.LastName} {c.Name}".ToLower() == item.Name.ToLower());
+                    Client client = null;
+                    if (foundedClients.Count() == 1)
                     {
-                        LastName = clientName[0],
-                        Name = clientName[1],
-                        Phone = item.Phone
+                        client = foundedClients.First();
+
+                    }
+                    else if (foundedClients.Count() == 0)
+                    {
+                        var clientName = item.Name.Split(' ');
+                        client = new Client
+                        {
+                            LastName = clientName[0],
+                            Name = clientName[1],
+                            Phone = item.Phone
+                        };
+                        if (!DoActionWithData("Clients", "insert", client))
+                        {
+                            clientsFails++;
+                            continue;
+                        }
+                        client.Id = _lastInsertedId;
+                        clientsAdded++;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                    var order = new Order
+                    {
+                        ClientId = client.Id,
+                        Date = item.Date,
+                        Payment = item.Payment,
+                        PriceId = (int)_prices?.Where(p => p.Name == item.Items || p.Short == item.Items).FirstOrDefault().Id,
+                        CalendarId = item.Id
                     };
-                    if (!DoActionWithData("Clients", "insert", client))
-                        clientsFails++;
-                    client.Id = _lastInsertedId;
-                    clientsAdded++;
+                    if (!DoActionWithData("Orders", "insert", order))
+                    {
+                        ordersFails++;
+                        continue;
+                    }
+                    ordersAdded++;
                 }
-                else
+                catch(Exception ex)
                 {
-                    continue;
+                    _log.Error($"Ошибка занесения в базу события из календаря. MESSAGE: {ex}");
                 }
-                var order = new Order
-                {
-                    ClientId = client.Id,
-                    Date = item.Date,
-                    Payment = item.Payment,
-                    PriceId = (int)_prices?.Where(p => p.Name == item.Items || p.Short == item.Items).FirstOrDefault().Id,
-                    CalendarId = item.Id
-                };
-                if (!DoActionWithData("Orders", "insert", order))
-                    ordersFails++;
-                ordersAdded++;
             }
-            if(clientsFails != 0 || ordersFails != 0)
-                MessageBox.Show($"Ошибки: добавления клиентов {clientsFails}; занесения услуг {ordersFails}.");
+            //if(clientsFails != 0 || ordersFails != 0)
+            //    MessageBox.Show($"Ошибки: добавления клиентов {clientsFails}; занесения услуг {ordersFails}.");
             this.Text = $"Новых клиентов {clientsAdded}. Занесено в базу услуг {ordersAdded}.";
+            notify.ShowBalloonTip(750, "Импорт данных", $"Выполнен иморт данных из календаря. Новых клиентов {clientsAdded}. Занесено в базу услуг {ordersAdded}.", ToolTipIcon.Info);
+
             await ClearFormCaption();
             //var f = new ImportForm();
             //f.Show();
@@ -482,6 +543,8 @@ namespace Contacts
             CheckClientData();
             DateOrdersEnd.DateTime = DateTime.Now;
             dateOrdersStart.DateTime = DateTime.Now.AddDays( -DateTime.Now.Day + 1);
+            dateMaterialEnd.DateTime = DateTime.Now;
+            dateMaterialStart.DateTime = DateTime.Now.AddDays(-DateTime.Now.Day + 1);
             startDateEdit.DateTime = DateTime.Now;
             endDateEdit.DateTime = DateTime.Now.AddDays(1);
         }
@@ -502,20 +565,143 @@ namespace Contacts
 
         private void showOrdersInfoBtn_Click(object sender, EventArgs e)
         {
-            var ordersInfo = new List<OrderInfo>();
-            foreach (var order in db.Orders.Where(o => o.Date >= dateOrdersStart.DateTime && o.Date <= DateOrdersEnd.DateTime && o.Left == false))
+            try
             {
-                ordersInfo.Add(new OrderInfo
+                var ordersInfo = new List<OrderInfo>();
+                db = new ApplicationContext();
+                foreach (var order in db.Orders.Where(o => o.Date >= dateOrdersStart.DateTime && o.Date <= DateOrdersEnd.DateTime && o.Left == false))
                 {
-                    ClientName = _clients?.Where(c => c.Id == order.ClientId).SingleOrDefault()?.FullName,
-                    Payment = order.Payment,
-                    Date = order.Date,
-                    PriceName = _prices?.Where(p => p.Id == order.PriceId).FirstOrDefault()?.Name
-                });
-            }
-            gcOrdersInfo.DataSource = ordersInfo;
-            gvOrdersInfo.GroupPanelText = $"Поступления с {dateOrdersStart.DateTime.ToShortDateString()} по {DateOrdersEnd.DateTime.ToShortDateString()}";
+                    ordersInfo.Add(new OrderInfo
+                    {
+                        ClientName = _clients?.Where(c => c.Id == order.ClientId).SingleOrDefault()?.FullName,
+                        Payment = order.Payment,
+                        Date = order.Date,
+                        PriceName = _prices?.Where(p => p.Id == order.PriceId).FirstOrDefault()?.Name
+                    });
+                }
+                gcOrdersInfo.DataSource = ordersInfo;
+                gvOrdersInfo.GroupPanelText = $"Поступления с {dateOrdersStart.DateTime.ToShortDateString()} по {DateOrdersEnd.DateTime.ToShortDateString()}";
 
+            }
+            catch (Exception ex)
+            {
+                _log.Error($"{ex}");
+            }
+        }
+
+        private void открытьЛогToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start("notepad++.exe", "errors.log");
+            }
+            catch (Exception ex)
+            {
+                _log.Error($"Ошибка открытия лог файла. MESSAGE: {ex}");
+            }
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            notify.Dispose();
+        }
+
+        private void clientsGridControl_DoubleClick(object sender, EventArgs e)
+        {
+            //DataViewBase view = gridControl.View;
+            
+            //object row = gridControl.GetRow(gridControl.GetSelectedRowHandles()[0]);
+            //_clientEdit = _clients.Where(c => $"{c.LastName} {c.Name}" == textEdit1.Text).First();
+            //lastNameEdit.Text = _clientEdit.LastName;
+            //pictureEdit1.Image = _clientEdit.Base64ToImage();
+            //nameEdit.Text = _clientEdit.Name;
+            //birthdayEdit.DateTime = _clientEdit.Birthday;
+            //phoneEdit.Text = _clientEdit.Phone;
+            //emailEdit.Text = _clientEdit.Email;
+            //linkEdit.Text = _clientEdit.Link;
+            //newUserControl.Visible = true;
+            //clientsGridControl.Visible = false;
+        }
+
+        private void historyBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_clientEdit != null)
+                {
+                    //var orders = db.Orders.Where(o => o.ClientId == _clientEdit.Id).ToList();
+                    List<OrderInfo> orders = new List<OrderInfo>();
+                    db = new ApplicationContext();
+                    foreach (var order in db.Orders.Where(o => o.ClientId == _clientEdit.Id))
+                    {
+                        orders.Add(new OrderInfo
+                        {
+                            Id = order.Id,
+                            ClientName = "",// _clients?.Where(c => c.Id == order.ClientId).SingleOrDefault()?.FullName,
+                            Payment = order.Payment,
+                            Date = order.Date,
+                            PriceName = _prices?.Where(p => p.Id == order.PriceId).FirstOrDefault()?.Name,
+                            Left = order.Left
+                        });
+                    }
+                    if (orders.Count == 0)
+                    {
+                        MessageBox.Show($"Клиент еще не записывался", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    var clientOrders = new OrderForm(orders, _clientEdit.FullName);
+                    clientOrders.DoAction = DoActionWithData;
+                    clientOrders.Show();
+                }
+            }
+            catch(Exception ex)
+            {
+                notify.ShowBalloonTip(750, "Ошибка", $"{ex.Message}", ToolTipIcon.Error);
+
+                _log.Error($"{ex}");
+            }
+
+        }
+
+        private void materialBtnShow_Click(object sender, EventArgs e)
+        {
+            db = new ApplicationContext();
+            var materials = db.Materials.Where(o => o.Date >= dateMaterialStart.DateTime && o.Date <= dateMaterialEnd.DateTime).ToList();
+            _materials = new BindingList<Material>(materials);
+            _materials.AllowNew = true;
+            _materials.AllowEdit = true;
+            gcMaterial.DataSource = _materials;
+        }
+
+        private void gvMaterial_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
+        {
+            var material = e.Row as Material;
+            var action = material.Id == 0 ? "insert" : "update";
+            if (!DoActionWithData("Materials", action, material))
+            {
+                MessageBox.Show($"Материал не обновлен!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            material.Id = _lastInsertedId;
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            birthdayEdit.DateTime = DateTime.Now;
+            nameEdit.Text = "";
+            lastNameEdit.Text = "";
+            emailEdit.Text = "";
+            phoneEdit.Text = "";
+            linkEdit.Text = "";
+            pictureEdit1.Image = null;
+            newUserControl.Visible = false;
+            clientsGridControl.Visible = true;
+        }
+
+        private void tileBarItem1_ItemClick(object sender, TileItemEventArgs e)
+        {
+            if (_materials == null)
+                materialBtnShow_Click(sender, e);
+                //_materials = new BindingList<Material>(new List<Material>());
         }
     }
 }

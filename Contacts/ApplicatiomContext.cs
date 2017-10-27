@@ -16,6 +16,7 @@ namespace Contacts
         public DbSet<Client> Clients { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Price> Prices { get; set; }
+        public DbSet<Material> Materials { get; set; }
         //public DbSet<MyEvent> Events { get; set; }
 
     }

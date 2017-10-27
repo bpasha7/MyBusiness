@@ -56,6 +56,7 @@
             this.gcServices.UseEmbeddedNavigator = true;
             this.gcServices.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvServices});
+            this.gcServices.Click += new System.EventHandler(this.gcServices_Click);
             // 
             // ms_Services
             // 

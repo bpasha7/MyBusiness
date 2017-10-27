@@ -156,14 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicatiomContext.cs" />
+    <Compile Include="Material.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="DbEntitie.cs" />
-    <Compile Include="ImportForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ImportForm.Designer.cs">
-      <DependentUpon>ImportForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MyEvent.cs" />
     <Compile Include="MyGoogleCalendar.cs" />
     <Compile Include="Order.cs" />
@@ -202,9 +197,6 @@
     <None Include="Resources\listing-option %282%29.png" />
     <None Include="Resources\listing-option %281%29.png" />
     <None Include="Resources\listing-option.png" />
-    <EmbeddedResource Include="ImportForm.resx">
-      <DependentUpon>ImportForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

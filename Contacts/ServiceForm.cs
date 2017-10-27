@@ -26,11 +26,11 @@ namespace Contacts
         public ServiceForm(List<Price> prices)
         {
             InitializeComponent();
-            _prices = new BindingList<Price>();
-            foreach (var item in prices)
-            {
-                _prices.Add(item);
-            }
+            _prices = new BindingList<Price>(prices);
+            //foreach (var item in prices)
+            //{
+            //    _prices.Add(item);
+            //}
             _prices.AllowNew = true;
             _prices.AllowEdit = true;
             gcServices.DataSource = _prices;
@@ -79,6 +79,11 @@ namespace Contacts
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             gvServices.DeleteSelectedRows();
+        }
+
+        private void gcServices_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

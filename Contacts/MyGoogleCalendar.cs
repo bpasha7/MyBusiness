@@ -104,7 +104,7 @@ namespace Contacts
                 request.TimeMax = end;
                 request.ShowDeleted = false;
                 request.SingleEvents = true;
-                request.MaxResults = 10;
+                request.MaxResults = 60;
                 request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
 
                 Events events = request.Execute();
