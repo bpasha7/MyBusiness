@@ -178,6 +178,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report.cs" />
     <Compile Include="ServiceForm.cs">
       <SubType>Form</SubType>
     </Compile>

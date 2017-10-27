@@ -543,6 +543,8 @@ namespace Contacts
             CheckClientData();
             DateOrdersEnd.DateTime = DateTime.Now;
             dateOrdersStart.DateTime = DateTime.Now.AddDays( -DateTime.Now.Day + 1);
+            repDateEnd.DateTime = DateTime.Now;
+            repDateStart.DateTime = DateTime.Now.AddDays(-DateTime.Now.Day + 1);
             dateMaterialEnd.DateTime = DateTime.Now;
             dateMaterialStart.DateTime = DateTime.Now.AddDays(-DateTime.Now.Day + 1);
             startDateEdit.DateTime = DateTime.Now;
@@ -702,6 +704,30 @@ namespace Contacts
             if (_materials == null)
                 materialBtnShow_Click(sender, e);
                 //_materials = new BindingList<Material>(new List<Material>());
+        }
+
+        private void repShowBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                db = new ApplicationContext();
+                var report = new List<ReportByMonth>();
+                var dt = repDateStart.DateTime;
+                for (int i = repDateStart.DateTime.Month; i < repDateEnd.DateTime.Month; i++)
+                {
+                    var ordersSum = db.Orders.Where(o => o.Date.Month == dt.Month && o.Date.Year == dt.Year).Sum(s => s.Payment);
+                    var materialsSum = db.Materials.Where(o => o.Date.Month == dt.Month && o.Date.Year == dt.Year).Sum(s => s.Payment);
+                    report.Add(new ReportByMonth { Date = dt, MaterialsSum = materialsSum, OrdersSum = ordersSum });
+                    dt = dt.AddMonths(1);
+                }
+                gcRep.DataSource = report;
+            }
+            catch(Exception ex)
+            {
+                notify.ShowBalloonTip(750, "Ошибка", $"{ex.Message}", ToolTipIcon.Error);
+
+                _log.Error($"{ex}");
+            }
         }
     }
 }
