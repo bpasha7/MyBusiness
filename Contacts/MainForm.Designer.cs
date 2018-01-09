@@ -168,6 +168,7 @@ namespace Contacts
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -182,7 +183,6 @@ namespace Contacts
             this.contextNotify = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.открытьЛогToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer1)).BeginInit();
             this.tileBarDropDownContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
@@ -1826,6 +1826,19 @@ namespace Contacts
             this.gridColumn7.VisibleIndex = 3;
             this.gridColumn7.Width = 354;
             // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Месяц";
+            this.gridColumn8.DisplayFormat.FormatString = "y";
+            this.gridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn8.FieldName = "Date";
+            this.gridColumn8.MinWidth = 125;
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.OptionsColumn.ReadOnly = true;
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 0;
+            this.gridColumn8.Width = 125;
+            // 
             // layoutControlGroup5
             // 
             this.layoutControlGroup5.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -1925,19 +1938,6 @@ namespace Contacts
             this.layoutControlItem13.Name = "layoutControlItem13";
             this.layoutControlItem13.Size = new System.Drawing.Size(740, 334);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(50, 20);
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.Caption = "Месяц";
-            this.gridColumn8.DisplayFormat.FormatString = "y";
-            this.gridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.gridColumn8.FieldName = "Date";
-            this.gridColumn8.MinWidth = 125;
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.OptionsColumn.ReadOnly = true;
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 0;
-            this.gridColumn8.Width = 125;
             // 
             // MainForm
             // 

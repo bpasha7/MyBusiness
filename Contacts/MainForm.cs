@@ -480,7 +480,8 @@ namespace Contacts
                 try
                 {
                     var item = gridView1.GetRow(index) as MyEvent;
-                    var foundedClients = _clients.Where(c => $"{c.LastName} {c.Name}".ToLower() == item.Name.ToLower());
+                    //_clients = db.Clients.w
+                    var foundedClients = db.Clients.Where(c => (c.LastName + " " + c.Name).ToLower() == item.Name.ToLower()).ToList();
                     Client client = null;
                     if (foundedClients.Count() == 1)
                     {
@@ -532,7 +533,7 @@ namespace Contacts
             //    MessageBox.Show($"Ошибки: добавления клиентов {clientsFails}; занесения услуг {ordersFails}.");
             this.Text = $"Новых клиентов {clientsAdded}. Занесено в базу услуг {ordersAdded}.";
             notify.ShowBalloonTip(750, "Импорт данных", $"Выполнен иморт данных из календаря. Новых клиентов {clientsAdded}. Занесено в базу услуг {ordersAdded}.", ToolTipIcon.Info);
-
+            _clients = db.Clients.ToList();
             await ClearFormCaption();
             //var f = new ImportForm();
             //f.Show();
@@ -713,10 +714,14 @@ namespace Contacts
                 db = new ApplicationContext();
                 var report = new List<ReportByMonth>();
                 var dt = repDateStart.DateTime;
-                for (int i = repDateStart.DateTime.Month; i < repDateEnd.DateTime.Month; i++)
+               // var months = (repDateEnd.DateTime - repDateStart.DateTime)
+                //for (int i = 0; i < repDateEnd.DateTime.Month; i++)
+                while(dt <= repDateEnd.DateTime)
                 {
-                    var ordersSum = db.Orders.Where(o => o.Date.Month == dt.Month && o.Date.Year == dt.Year).Sum(s => s.Payment);
-                    var materialsSum = db.Materials.Where(o => o.Date.Month == dt.Month && o.Date.Year == dt.Year).Sum(s => s.Payment);
+                    var orders = db.Orders.Where(o => o.Date.Month == dt.Month && o.Date.Year == dt.Year);
+                    var ordersSum = orders.Count() > 0 ? orders.Sum(s => s.Payment) : 0;
+                    var materials = db.Materials.Where(o => o.Date.Month == dt.Month && o.Date.Year == dt.Year);
+                    var materialsSum = materials.Count() > 0 ? materials.Sum(s => s.Payment) : 0;
                     report.Add(new ReportByMonth { Date = dt, MaterialsSum = materialsSum, OrdersSum = ordersSum });
                     dt = dt.AddMonths(1);
                 }
