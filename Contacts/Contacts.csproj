@@ -185,6 +185,9 @@
     <Compile Include="ServiceForm.Designer.cs">
       <DependentUpon>ServiceForm.cs</DependentUpon>
     </Compile>
+    <Content Include="Mydb.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\show.png" />
     <None Include="Resources\eye.png" />
     <EmbeddedResource Include="ServiceForm.resx">

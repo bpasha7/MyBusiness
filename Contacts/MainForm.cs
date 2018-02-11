@@ -82,7 +82,9 @@ namespace Contacts
             }
             catch (Exception ex)
             {
+                notify.ShowBalloonTip(750, "Ошибка", "Не найден файл БД.", ToolTipIcon.Error);
 
+                _log.Error($"{ex}");
             }
             finally
             {
@@ -97,6 +99,12 @@ namespace Contacts
             {
                 _clients = db.Clients.ToList();
                 _haveNewClient = false;
+            }
+            catch (Exception ex)
+            {
+                notify.ShowBalloonTip(750, "Ошибка", "Не найден файл БД.", ToolTipIcon.Error);
+
+                _log.Error($"{ex}");
             }
             finally
             {
@@ -326,6 +334,10 @@ namespace Contacts
             {
                 _clients = db.Clients.ToList();
                 _haveNewClient = false;
+            }
+            catch(Exception ex)
+            {
+
             }
             finally
             {
@@ -596,7 +608,7 @@ namespace Contacts
         {
             try
             {
-                Process.Start("notepad++.exe", "errors.log");
+                Process.Start("notepad.exe", "errors.log");
             }
             catch (Exception ex)
             {
