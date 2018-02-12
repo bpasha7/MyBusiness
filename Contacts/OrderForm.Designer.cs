@@ -36,8 +36,8 @@
             this.colOrderInfoName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.repositoryItemCheckedComboBoxEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckedComboBoxEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gcOrdersInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvOrdersInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
@@ -47,6 +47,7 @@
             // gcOrdersInfo
             // 
             this.gcOrdersInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcOrdersInfo.EmbeddedNavigator.Buttons.Remove.Visible = false;
             this.gcOrdersInfo.EmbeddedNavigator.TextStringFormat = "Запись {0} из {1}";
             this.gcOrdersInfo.Location = new System.Drawing.Point(0, 0);
             this.gcOrdersInfo.MainView = this.gvOrdersInfo;
@@ -59,6 +60,7 @@
             this.gcOrdersInfo.UseEmbeddedNavigator = true;
             this.gcOrdersInfo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvOrdersInfo});
+            this.gcOrdersInfo.Click += new System.EventHandler(this.gcOrdersInfo_Click);
             // 
             // gvOrdersInfo
             // 
@@ -72,20 +74,17 @@
             this.gvOrdersInfo.GridControl = this.gcOrdersInfo;
             this.gvOrdersInfo.GroupPanelText = "Поступления";
             this.gvOrdersInfo.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, null, this.colOrderInfoPayment, "c0", new decimal(new int[] {
-                            0,
-                            0,
-                            0,
-                            0}))});
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, null, null, "c0", ((short)(2)))});
             this.gvOrdersInfo.Name = "gvOrdersInfo";
+            this.gvOrdersInfo.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gvOrdersInfo.OptionsPrint.EnableAppearanceEvenRow = true;
             this.gvOrdersInfo.OptionsPrint.PrintDetails = true;
             this.gvOrdersInfo.OptionsPrint.PrintGroupFooter = false;
             this.gvOrdersInfo.OptionsPrint.PrintPreview = true;
             this.gvOrdersInfo.OptionsPrint.UsePrintStyles = false;
             this.gvOrdersInfo.OptionsSelection.CheckBoxSelectorColumnWidth = 20;
-            this.gvOrdersInfo.OptionsSelection.MultiSelect = true;
             this.gvOrdersInfo.OptionsView.ShowFooter = true;
+            this.gvOrdersInfo.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.gvOrdersInfo_CustomSummaryCalculate);
             this.gvOrdersInfo.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gvOrdersInfo_RowUpdated);
             // 
             // colOrderInfoDate
@@ -111,7 +110,7 @@
             this.colOrderInfoPayment.FieldName = "Payment";
             this.colOrderInfoPayment.Name = "colOrderInfoPayment";
             this.colOrderInfoPayment.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Payment", "Всего: {0:c0}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "Payment", "Всего: {0:c0}", ((short)(1)))});
             this.colOrderInfoPayment.Visible = true;
             this.colOrderInfoPayment.VisibleIndex = 2;
             // 
@@ -148,18 +147,18 @@
             this.repositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
             this.repositoryItemCheckEdit1.Tag = true;
             // 
+            // colId
+            // 
+            this.colId.Caption = "gridColumn1";
+            this.colId.FieldName = "Id";
+            this.colId.Name = "colId";
+            // 
             // repositoryItemCheckedComboBoxEdit1
             // 
             this.repositoryItemCheckedComboBoxEdit1.AutoHeight = false;
             this.repositoryItemCheckedComboBoxEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemCheckedComboBoxEdit1.Name = "repositoryItemCheckedComboBoxEdit1";
-            // 
-            // colId
-            // 
-            this.colId.Caption = "gridColumn1";
-            this.colId.FieldName = "Id";
-            this.colId.Name = "colId";
             // 
             // OrderForm
             // 

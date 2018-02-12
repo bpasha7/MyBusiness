@@ -122,6 +122,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(508, 260);
             this.Name = "ServiceForm";
+            this.ShowIcon = false;
             this.Text = "Услуги";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServiceForm_FormClosing);
             this.Load += new System.EventHandler(this.ServiceForm_Load);

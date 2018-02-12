@@ -1389,6 +1389,7 @@ namespace Contacts
             this.TimeCol.FieldName = "TimeStart";
             this.TimeCol.MaxWidth = 50;
             this.TimeCol.Name = "TimeCol";
+            this.TimeCol.OptionsColumn.ReadOnly = true;
             this.TimeCol.Visible = true;
             this.TimeCol.VisibleIndex = 2;
             this.TimeCol.Width = 50;
@@ -1405,6 +1406,7 @@ namespace Contacts
             this.dateCol.FieldName = "Date";
             this.dateCol.MaxWidth = 80;
             this.dateCol.Name = "dateCol";
+            this.dateCol.OptionsColumn.ReadOnly = true;
             this.dateCol.Visible = true;
             this.dateCol.VisibleIndex = 1;
             this.dateCol.Width = 79;
@@ -1489,7 +1491,6 @@ namespace Contacts
                             0,
                             0}))});
             this.gvMaterial.Name = "gvMaterial";
-            this.gvMaterial.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gvMaterial.OptionsSelection.CheckBoxSelectorColumnWidth = 20;
             this.gvMaterial.OptionsSelection.MultiSelect = true;
             this.gvMaterial.OptionsView.ShowFooter = true;

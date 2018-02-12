@@ -17,6 +17,10 @@ using Google.Apis.Util.Store;
 using System.IO;
 using System.Threading;
 using System.Diagnostics;
+using System.Net;
+using System.Net.Cache;
+using System.Text.RegularExpressions;
+using System.Security.Cryptography;
 
 namespace Contacts
 {
@@ -117,6 +121,128 @@ namespace Contacts
 
 
         object _lock;
+
+        public DateTime GetNistTime()
+        {
+            DateTime dateTime = DateTime.MinValue;
+            System.Net.HttpWebRequest request = (System.Net.HttpWebRequest)System.Net.WebRequest.Create("http://www.microsoft.com");
+            request.Method = "GET";
+            request.Accept = "text/html, application/xhtml+xml, */*";
+            request.UserAgent = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.CachePolicy = new System.Net.Cache.RequestCachePolicy(System.Net.Cache.RequestCacheLevel.NoCacheNoStore);
+            System.Net.HttpWebResponse response = (System.Net.HttpWebResponse)request.GetResponse();
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                string todaysDates = response.Headers["date"];
+
+                dateTime = DateTime.ParseExact(todaysDates, "ddd, dd MMM yyyy HH:mm:ss 'GMT'",
+                    System.Globalization.CultureInfo.InvariantCulture.DateTimeFormat, System.Globalization.DateTimeStyles.AssumeUniversal);
+            }
+
+            return dateTime;
+        }
+
+
+        bool Check()
+        {
+            try
+            {
+                string[] files = System.IO.Directory.GetFiles(Directory.GetCurrentDirectory(), "*.lic");
+                if (files.Count() != 1)
+                    throw new Exception("Обнаружено несколько файлов лицензий!");
+                string line = "";
+                using (StreamReader sr = new StreamReader(files[0]))
+                {
+                    line = sr.ReadToEnd();
+                }
+                using (MD5 md5Hash = MD5.Create())
+                {
+                    string hash = GetMd5Hash(md5Hash, line);
+                    var fi = new FileInfo(files[0]);
+                    if (fi.Name.Replace(".lic","") !=  hash)
+                    {
+                        throw new Exception("Лицензия нарушена!");
+                    }
+                }
+                line = Base64Decode(line);
+                line = Base64Decode(line);
+                var param = line.Split(new char[] { '|' });
+                var machine = param[0];
+                var computerName = System.Environment.MachineName;
+                if(machine != computerName)
+                {
+                    throw new Exception("Лицензия не подходит на данный компьютер!");
+                }
+                var User = param[1];
+                var dtNow = GetNistTime();
+                var dt = new DateTime(Convert.ToInt64(param[2]));
+                var days = (dtNow - dt).Days;
+                if (days < 0)
+                    notify.ShowBalloonTip(750, "Лицензия", $"{User}, осталось дней: {Math.Abs(days)}.", ToolTipIcon.Info);
+                return true;
+            }
+            catch(Exception ex)
+            {
+                notify.ShowBalloonTip(750, "Внимание", $"{ex.Message}", ToolTipIcon.Warning);
+                this.Enabled = false;
+                _log.Error($"{ex}");
+                return false;
+            }
+        }
+
+        static string GetMd5Hash(MD5 md5Hash, string input)
+        {
+
+            // Convert the input string to a byte array and compute the hash.
+            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+            // Create a new Stringbuilder to collect the bytes
+            // and create a string.
+            StringBuilder sBuilder = new StringBuilder();
+
+            // Loop through each byte of the hashed data 
+            // and format each one as a hexadecimal string.
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+
+            // Return the hexadecimal string.
+            return sBuilder.ToString();
+        }
+
+        // Verify a hash against a string.
+        static bool VerifyMd5Hash(MD5 md5Hash, string input, string hash)
+        {
+            // Hash the input.
+            string hashOfInput = GetMd5Hash(md5Hash, input);
+
+            // Create a StringComparer an compare the hashes.
+            StringComparer comparer = StringComparer.OrdinalIgnoreCase;
+
+            if (0 == comparer.Compare(hashOfInput, hash))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static string Base64Encode(string plainText)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
+
+        public static string Base64Decode(string base64EncodedData)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+
         private bool DoActionWithData(string TableName, string Action, DbEntitie Item)
         {
 
@@ -553,6 +679,8 @@ namespace Contacts
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            if (!Check())
+                return;
             CheckClientData();
             DateOrdersEnd.DateTime = DateTime.Now;
             dateOrdersStart.DateTime = DateTime.Now.AddDays( -DateTime.Now.Day + 1);
