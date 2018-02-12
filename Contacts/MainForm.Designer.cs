@@ -1494,6 +1494,7 @@ namespace Contacts
             this.gvMaterial.OptionsSelection.CheckBoxSelectorColumnWidth = 20;
             this.gvMaterial.OptionsSelection.MultiSelect = true;
             this.gvMaterial.OptionsView.ShowFooter = true;
+            this.gvMaterial.RowDeleting += new DevExpress.Data.RowDeletingEventHandler(this.gvMaterial_RowDeleting);
             this.gvMaterial.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gvMaterial_RowUpdated);
             // 
             // gridColumn1

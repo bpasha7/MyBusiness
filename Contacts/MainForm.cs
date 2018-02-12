@@ -150,7 +150,7 @@ namespace Contacts
             {
                 string[] files = System.IO.Directory.GetFiles(Directory.GetCurrentDirectory(), "*.lic");
                 if (files.Count() != 1)
-                    throw new Exception("Обнаружено несколько файлов лицензий!");
+                    throw new Exception("Не обнаружено лицензии!");
                 string line = "";
                 using (StreamReader sr = new StreamReader(files[0]))
                 {
@@ -185,7 +185,8 @@ namespace Contacts
             catch(Exception ex)
             {
                 notify.ShowBalloonTip(750, "Внимание", $"{ex.Message}", ToolTipIcon.Warning);
-                this.Enabled = false;
+                navigationFrame.Enabled = false;
+                tileBar.Enabled = false;
                 _log.Error($"{ex}");
                 return false;
             }
@@ -873,6 +874,18 @@ namespace Contacts
 
                 _log.Error($"{ex}");
             }
+        }
+
+        private void gvMaterial_RowDeleting(object sender, DevExpress.Data.RowDeletingEventArgs e)
+        {
+            if (MessageBox.Show($"Удалить расход?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
+                return;
+            }
+            var material = e.Row as Material;
+            if (!DoActionWithData("Materials", "delete", material))
+                MessageBox.Show($"Расход не удален!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }
